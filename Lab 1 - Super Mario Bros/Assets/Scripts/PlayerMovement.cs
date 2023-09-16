@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreGameOverText;
 
     public GameObject enemies;
     public JumpOverGoomba jumpOverGoomba;
 
     public GameObject gameOverPanel;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             // Debug.Log("goomba collision");
             Time.timeScale = 0.0f; //freezes time
 
-            gameOverPanel.SetActive(true); // gameover screen
+            gameOverPanel.SetActive(true); // show gameover screen
         }
     }
 
@@ -110,7 +112,9 @@ public class PlayerMovement : MonoBehaviour
         // reset score to 0
         jumpOverGoomba.score = 0;
 
-        // gameover screen
+        // hide gameover screen
         gameOverPanel.SetActive(false);
+
+        scoreGameOverText.text= "Score: 0";
     }
 }
