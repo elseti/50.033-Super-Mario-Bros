@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public JumpOverGoomba jumpOverGoomba;
 
     public GameObject gameOverPanel;
+
+    public Animator marioAnimator;
     
 
     // Start is called before the first frame update
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
        Application.targetFrameRate = 30;
        marioBody = GetComponent<Rigidbody2D>();
        marioSprite = GetComponent<SpriteRenderer>();
+
+       marioAnimator.SetBool("onGround", onGroundState);
         
     }
 
@@ -40,12 +42,22 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("a") || Input.GetKey(KeyCode.LeftArrow) && faceRightState){
             faceRightState = false;
             marioSprite.flipX = true;
+            
+            if(marioBody.velocity.x > 0.1f){
+                marioAnimator.SetTrigger("onSkid");
+            }
         }
 
         if(Input.GetKeyDown("d") || Input.GetKey(KeyCode.RightArrow) && !faceRightState){
             faceRightState = true;
             marioSprite.flipX = false;
+
+            if(marioBody.velocity.x < -0.1f){
+                marioAnimator.SetTrigger("onSkid");
+            }
         }
+
+        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
     }
 
     // called 50x a sec
@@ -71,16 +83,19 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("space") && onGroundState){
             marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
             onGroundState = false;
+            marioAnimator.SetBool("onGround", onGroundState);
         }
 
-        
-        
+
     }
 
 
     // allow jump on ground
     void OnCollisionEnter2D(Collision2D col){
-        if(col.gameObject.CompareTag("Ground")) onGroundState = true;
+        if(col.gameObject.CompareTag("Ground") && !onGroundState){
+            onGroundState = true;
+            marioAnimator.SetBool("onGround", onGroundState);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other){

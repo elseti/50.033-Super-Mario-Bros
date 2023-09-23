@@ -958,7 +958,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.028244972, y: -0.046406507}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -969,7 +969,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1875, y: 2.0625}
+  m_Size: {x: 2.13101, y: 1.969687}
   m_EdgeRadius: 0
 --- !u!1 &645727937
 GameObject:
@@ -988,7 +988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &645727938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2518,6 +2518,38 @@ Transform:
   - {fileID: 1290465008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1099940789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099940790}
+  m_Layer: 0
+  m_Name: Mario Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1099940790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099940789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.88, y: -5.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1146390484}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146390482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,6 +2564,7 @@ GameObject:
   - component: {fileID: 1146390486}
   - component: {fileID: 1146390487}
   - component: {fileID: 1146390488}
+  - component: {fileID: 1146390489}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Untagged
@@ -2585,7 +2618,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3125, y: 1.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2599,13 +2632,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146390482}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.88, y: -5.8, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2.05118}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1099940790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1146390485
 MonoBehaviour:
@@ -2623,9 +2656,11 @@ MonoBehaviour:
   maxSpeed: 35
   upSpeed: 24
   scoreText: {fileID: 1618060253}
+  scoreGameOverText: {fileID: 923271489}
   enemies: {fileID: 1050492715}
   jumpOverGoomba: {fileID: 1146390488}
   gameOverPanel: {fileID: 645727937}
+  marioAnimator: {fileID: 1146390489}
 --- !u!50 &1146390486
 Rigidbody2D:
   serializedVersion: 4
@@ -2690,7 +2725,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.3125, y: 1.0625}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.3125, y: 1.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2717,6 +2752,28 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  scoreGameOverText: {fileID: 923271489}
+--- !u!95 &1146390489
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c32a00c175c34416b063ba65d40018c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1273230169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3279,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.051086903, y: -0.04150057}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3233,7 +3290,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1875, y: 2.0625}
+  m_Size: {x: 2.0853262, y: 1.9794989}
   m_EdgeRadius: 0
 --- !u!1 &1582004821
 GameObject:
@@ -4706,7 +4763,7 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1146390484}
+  - {fileID: 1099940790}
   - {fileID: 281311470}
   - {fileID: 1050492716}
   - {fileID: 1905848389}
