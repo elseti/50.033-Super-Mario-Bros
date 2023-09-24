@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform gameCamera;    
 
+    int collisionLayerMask = (1 << 6) | (1 << 7) | (1 << 8); // bitwise OR between layers; i.e. becomes 1110 0000 i think?
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +106,9 @@ public class PlayerMovement : MonoBehaviour
 
     // allow jump on ground
     void OnCollisionEnter2D(Collision2D col){
-        if(col.gameObject.CompareTag("Ground") && !onGroundState){
+        // if any of the collider's layers is one of the collisionLayerMask, then is true.
+        // bitwise operands (col's layer binary and 1110 0000)
+        if(((collisionLayerMask & (1 << col.transform.gameObject.layer)) > 0) & !onGroundState){
             onGroundState = true;
             marioAnimator.SetBool("onGround", onGroundState);
         }

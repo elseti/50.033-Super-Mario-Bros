@@ -446,7 +446,7 @@ TextureImporter:
         width: 11
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -454,6 +454,27 @@ TextureImporter:
       bones: []
       spriteID: e953cc8adab8840848d8e2d0f269485c
       internalID: -1207154176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platform-1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1201
+        width: 50
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f47611dbc79245db81bce0b64c035d1
+      internalID: 1206002231
       vertices: []
       indices: 
       edges: []
@@ -481,6 +502,7 @@ TextureImporter:
       mushroom_1: -201333030
       pipe_1: 1779848971
       pipe_ext_1: -883321334
+      platform-1: 1206002231
       question_box_1: -1349687246
       shrub_big: 145724518
       shrub_medium: 761285640
