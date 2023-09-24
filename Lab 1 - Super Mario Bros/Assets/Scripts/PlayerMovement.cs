@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [System.NonSerialized]
     public bool alive = true;
-    public float deathImpulse = 20;
+    public float deathImpulse = 30;
 
     public Transform gameCamera;    
 
