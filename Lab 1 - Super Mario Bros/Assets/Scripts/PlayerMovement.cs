@@ -201,6 +201,5 @@ public class PlayerMovement : MonoBehaviour
     void PlayDeathImpulse(){
         alive = false;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
-        print("death impulse");
     }
 }

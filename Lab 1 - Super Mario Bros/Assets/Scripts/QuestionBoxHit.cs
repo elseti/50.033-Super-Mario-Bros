@@ -24,7 +24,6 @@ public class QuestionBoxHit : MonoBehaviour
     void OnCollisionEnter2D(){
         if(!hitDone){
             boxAudioSource.PlayOneShot(boxAudioSource.clip);
-            print("hit question box");
             questionBoxAnimator.SetTrigger("hitQuestionBox");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; // change rigidbody to static so it doesn't move
             hitDone = true;

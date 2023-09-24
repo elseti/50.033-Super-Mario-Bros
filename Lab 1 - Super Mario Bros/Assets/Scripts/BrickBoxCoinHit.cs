@@ -23,7 +23,6 @@ public class BrickBoxCoinHit : MonoBehaviour
     void OnCollisionEnter2D(){
         if(!hitDone){
             boxAudioSource.PlayOneShot(boxAudioSource.clip);
-            print("hit brick box");
             brickBoxAnimator.SetTrigger("hitBrickBox");
             hitDone = true;
         }
