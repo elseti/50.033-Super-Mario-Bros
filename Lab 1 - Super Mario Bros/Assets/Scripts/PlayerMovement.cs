@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [System.NonSerialized]
     public bool alive = true;
-    public float deathImpulse = 10;
+    public float deathImpulse = 30;
 
     public Transform gameCamera;    
 
@@ -56,26 +56,29 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // flip mario
-        if(Input.GetKeyDown("a") || Input.GetKey(KeyCode.LeftArrow) && faceRightState){
-            faceRightState = false;
-            marioSprite.flipX = true;
-            
-            if(marioBody.velocity.x > 0.1f){
-                marioAnimator.SetTrigger("onSkid");
+        if(alive){
+            // flip mario
+            if(Input.GetKeyDown("a") || Input.GetKey(KeyCode.LeftArrow) && faceRightState){
+                faceRightState = false;
+                marioSprite.flipX = true;
+                
+                if(marioBody.velocity.x > 0.1f){
+                    marioAnimator.SetTrigger("onSkid");
+                }
             }
-        }
 
-        if(Input.GetKeyDown("d") || Input.GetKey(KeyCode.RightArrow) && !faceRightState){
-            faceRightState = true;
-            marioSprite.flipX = false;
+            if(Input.GetKeyDown("d") || Input.GetKey(KeyCode.RightArrow) && !faceRightState){
+                faceRightState = true;
+                marioSprite.flipX = false;
 
-            if(marioBody.velocity.x < -0.1f){
-                marioAnimator.SetTrigger("onSkid");
+                if(marioBody.velocity.x < -0.1f){
+                    marioAnimator.SetTrigger("onSkid");
+                }
             }
-        }
 
-        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+            marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+        }
+        
     }
 
     // called 50x a sec
@@ -130,7 +133,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // called in death animation
     void GameOverScreen(){
+        alive = false;
         Time.timeScale = 0.0f; //freezes time
         gameOverPanel.SetActive(true); // show gameover screen
     }
@@ -177,12 +182,14 @@ public class PlayerMovement : MonoBehaviour
             qbObj.GetComponent<QuestionBoxHit>().hitDone = false;
         }
 
-        // restart each brickBox
+        // restart each brickBox with coin
         foreach(Transform bcb in brickCoinBoxes){
             bcb.GetComponent<Animator>().SetTrigger("restart");
             Transform bcbObj = bcb.Find("brick-box-spring/brick_box_1");
             bcbObj.GetComponent<BrickBoxCoinHit>().hitDone = false;
         }
+
+        // no need to restart brickBox without coin cuz no script it's just existing
     }
 
 
@@ -192,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void PlayDeathImpulse(){
+        alive = false;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
         print("death impulse");
     }
