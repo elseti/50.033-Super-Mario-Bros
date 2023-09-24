@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     // public Animator questionBoxAnimator;
     // public Rigidbody2D questionBoxRigidbody;
     public Transform questionBoxes;
+    public Transform brickCoinBoxes;
 
 
     // Start is called before the first frame update
@@ -174,6 +175,13 @@ public class PlayerMovement : MonoBehaviour
             Transform qbObj = qb.Find("question-box-spring/question_box_1");
             qbObj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             qbObj.GetComponent<QuestionBoxHit>().hitDone = false;
+        }
+
+        // restart each brickBox
+        foreach(Transform bcb in brickCoinBoxes){
+            bcb.GetComponent<Animator>().SetTrigger("restart");
+            Transform bcbObj = bcb.Find("brick-box-spring/brick_box_1");
+            bcbObj.GetComponent<BrickBoxCoinHit>().hitDone = false;
         }
     }
 
