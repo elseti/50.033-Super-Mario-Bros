@@ -438,7 +438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_1
+      name: coin_normal
       rect:
         serializedVersion: 2
         x: 426
@@ -467,7 +467,7 @@ TextureImporter:
         width: 50
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -475,6 +475,153 @@ TextureImporter:
       bones: []
       spriteID: 1f47611dbc79245db81bce0b64c035d1
       internalID: 1206002231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: question_box_2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1075
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f2665d62c2046cd9fab93a4ce02d14
+      internalID: -517996570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: question_box_3
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1075
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32950a0cc1f44b9b86ba1d1fb8e3b7a
+      internalID: -2037441174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_1
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1092
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbcc00ef7f5a4444b2b89e8f5a8c052
+      internalID: -2898311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_2
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1092
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f43a6888fbd493e85872b136b09cca
+      internalID: -266831631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1092
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5caad22c96af4677b6e9a9377370ff3
+      internalID: -1796795607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_4
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1092
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e94c2c5eaf344c289d0c364f106233
+      internalID: 1920524353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: question_box_dead
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1151
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230188efef7d6449c924b5fc84075f3a
+      internalID: -2136279728
       vertices: []
       indices: 
       edges: []
@@ -494,7 +641,11 @@ TextureImporter:
       cloud_big: -2071528648
       cloud_medium: 640675830
       cloud_small: 26431792
-      coin_1: -1207154176
+      coin_1: -2898311
+      coin_2: -266831631
+      coin_3: -1796795607
+      coin_4: 1920524353
+      coin_normal: -1207154176
       ground: 305442579
       ground_break: 1520892528
       hill_big: -1083459783
@@ -504,6 +655,9 @@ TextureImporter:
       pipe_ext_1: -883321334
       platform-1: 1206002231
       question_box_1: -1349687246
+      question_box_2: -517996570
+      question_box_3: -2037441174
+      question_box_dead: -2136279728
       shrub_big: 145724518
       shrub_medium: 761285640
       shrub_small: 1717270336

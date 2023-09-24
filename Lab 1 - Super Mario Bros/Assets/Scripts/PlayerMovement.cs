@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     int collisionLayerMask = (1 << 6) | (1 << 7) | (1 << 8); // bitwise OR between layers; i.e. becomes 1110 0000 i think?
 
+    // Question Box animation parameters
+    // [System.NonSerialized]
+    // public hitBoxDone = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
