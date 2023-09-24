@@ -35,9 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     int collisionLayerMask = (1 << 6) | (1 << 7) | (1 << 8); // bitwise OR between layers; i.e. becomes 1110 0000 i think?
 
-    // Question Box animation parameters
-    // [System.NonSerialized]
-    // public hitBoxDone = false;
+    // Question Box animator
+    // public Animator questionBoxAnimator;
+    // public Rigidbody2D questionBoxRigidbody;
+    public Transform questionBoxes;
 
 
     // Start is called before the first frame update
@@ -166,7 +167,14 @@ public class PlayerMovement : MonoBehaviour
 
         // reset camera position
         gameCamera.position = new Vector3(-4.927341f, -3.865316f, -5.233578f);
-        
+
+        // restart each questionBox from the parent gameobject
+        foreach(Transform qb in questionBoxes){
+            qb.GetComponent<Animator>().SetTrigger("restart");
+            Transform qbObj = qb.Find("question-box-spring/question_box_1");
+            qbObj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            qbObj.GetComponent<QuestionBoxHit>().hitDone = false;
+        }
     }
 
 
