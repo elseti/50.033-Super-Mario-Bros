@@ -49,4 +49,13 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         // Debug.Log(other.gameObject.name);
     }
+
+    public void GameRestart()
+    {
+        transform.localPosition = startPosition;
+        originalX = transform.position.x;
+        moveRight = -1;
+        ComputeVelocity();
+    }
+
 }

@@ -15,13 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private bool onGroundState = true;
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI scoreGameOverText;
-
-    public GameObject enemies;
-    public JumpOverGoomba jumpOverGoomba;
-
-    public GameObject gameOverPanel;
 
     public Animator marioAnimator;
 
@@ -43,22 +36,16 @@ public class PlayerMovement : MonoBehaviour
 
     
     // InputSystem
-    public MarioActions marioActions;
     private bool moving = false;
     private  bool jumpedState = false;
+
+    // GameManager
+    public GameManager gameManager;
 
 
     // Start is called before the first frame update
     void Start()
     {  
-
-        marioActions = new MarioActions();
-        marioActions.gameplay.Enable();
-        marioActions.gameplay.jump.performed += OnJump;
-        marioActions.gameplay.jumpHold.performed += OnJumpHoldPerformed;
-        marioActions.gameplay.move.started += OnMove;
-        marioActions.gameplay.move.canceled += OnMove;
-
         Application.targetFrameRate = 30;
         marioBody = GetComponent<Rigidbody2D>();
         marioSprite = GetComponent<SpriteRenderer>();
@@ -68,7 +55,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update(){
-        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+        if(alive){
+            marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+        }
+        
     }
 
     void FixedUpdate()
@@ -174,39 +164,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // called in death animation
+    // called in death animation TODO: DELETE LTR
     void GameOverScreen(){
         alive = false;
         Time.timeScale = 0.0f; //freezes time
-        gameOverPanel.SetActive(true); // show gameover screen
+        gameManager.GameOver();
     }
 
-    // it is private by default, don't forget to public it.
-    public void RestartButtonCallback(int input){
-        ResetGame();
-        Time.timeScale = 1.0f;
-    }
 
-    private void ResetGame(){
+    public void GameRestart(){
         marioBody.transform.position = new Vector3(-7.88f, -5.8f, 0.0f);
         faceRightState = true;
         marioSprite.flipX = false;
-        scoreText.text = "Score: 0";
+        // scoreText.text = "Score: 0";
 
         // stop all audio
         marioAudio.Stop();
-
-        // return enemies to starting positions
-        foreach (Transform eachChild in enemies.transform){
-            eachChild.transform.localPosition = eachChild.GetComponent<EnemyMovement>().startPosition;
-        }
-
-        // reset score to 0
-        jumpOverGoomba.score = 0;
-        scoreGameOverText.text= "Score: 0";
-
-        // hide gameover screen
-        gameOverPanel.SetActive(false);
 
         // reset animation
         marioAnimator.SetTrigger("gameRestart");
