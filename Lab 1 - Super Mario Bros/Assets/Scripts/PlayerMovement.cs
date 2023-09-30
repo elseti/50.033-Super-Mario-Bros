@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -41,17 +43,45 @@ public class PlayerMovement : MonoBehaviour
     public Transform questionBoxes;
     public Transform brickCoinBoxes;
 
+    
+    // InputSystem
+    public MarioActions marioActions;
 
     // Start is called before the first frame update
     void Start()
-    {
-       Application.targetFrameRate = 30;
-       marioBody = GetComponent<Rigidbody2D>();
-       marioSprite = GetComponent<SpriteRenderer>();
+    {  
 
-       marioAnimator.SetBool("onGround", onGroundState);
+        marioActions = new MarioActions();
+        marioActions.gameplay.Enable();
+        marioActions.gameplay.jump.performed += OnJump;
+        marioActions.gameplay.jumpHold.performed += OnJumpHoldPerformed;
+        marioActions.gameplay.move.started += OnMove;
+        marioActions.gameplay.move.canceled += OnMove;
+
+        Application.targetFrameRate = 30;
+        marioBody = GetComponent<Rigidbody2D>();
+        marioSprite = GetComponent<SpriteRenderer>();
+
+        marioAnimator.SetBool("onGround", onGroundState);
         
     }
+
+    // Callbacks for Input System Actions
+    void OnJump(InputAction.CallbackContext context){
+        print("jump normal");
+    }
+
+    void OnMove(InputAction.CallbackContext context){
+        if(context.started) print("move started");
+        if(context.canceled) print("move cancelled");
+        float move = context.ReadValue<float>(); // read value of axis
+        print($"move value: {move}");
+    }
+
+    void OnJumpHoldPerformed(InputAction.CallbackContext context){
+        print("jump hold");
+    }
+
 
     // Update is called once per frame
     void Update()
