@@ -38,14 +38,15 @@ public class PlayerMovement : MonoBehaviour
     int collisionLayerMask = (1 << 6) | (1 << 7) | (1 << 8); // bitwise OR between layers; i.e. becomes 1110 0000 i think?
 
     // Question Box animator
-    // public Animator questionBoxAnimator;
-    // public Rigidbody2D questionBoxRigidbody;
     public Transform questionBoxes;
     public Transform brickCoinBoxes;
 
     
     // InputSystem
     public MarioActions marioActions;
+    private bool moving = false;
+    private  bool jumpedState = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,81 +67,91 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    void Update(){
+        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
+    }
+
+    void FixedUpdate()
+    {
+        if(alive && moving){
+            Move(faceRightState == true ? 1 : -1);
+        }
+
+    }
+
+    // MOVING ACTIONS
+    void Move(int value){
+        Vector2 movement = new Vector2(value, 0);
+        if(marioBody.velocity.magnitude < maxSpeed){
+            marioBody.AddForce(movement * speed);
+        }
+    }
+
+    public void MoveCheck(int value){
+        if(value == 0){
+            moving = false;
+        }
+        else{
+            FlipMarioSprite(value);
+            moving = true;
+            Move(value);
+        }
+    }
+
+    public void Jump(){
+        if(alive && onGroundState){
+            marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
+            onGroundState = false;
+            jumpedState = true;
+
+            marioAnimator.SetBool("onGround", onGroundState);
+        }
+    }
+
+    public void JumpHold(){
+        if(alive && jumpedState){
+            marioBody.AddForce(Vector2.up * upSpeed * 30, ForceMode2D.Force);
+            jumpedState = false;
+        }
+    }
+
     // Callbacks for Input System Actions
     void OnJump(InputAction.CallbackContext context){
-        print("jump normal");
+        // print("jump normal");
+        Jump();
     }
 
     void OnMove(InputAction.CallbackContext context){
-        if(context.started) print("move started");
-        if(context.canceled) print("move cancelled");
+        // if(context.started) print("move started");
+        // if(context.canceled) print("move cancelled");
         float move = context.ReadValue<float>(); // read value of axis
-        print($"move value: {move}");
+        // print($"move value: {move}");
+        MoveCheck((int) move);
+        
     }
 
     void OnJumpHoldPerformed(InputAction.CallbackContext context){
-        print("jump hold");
+        // print("jump hold");
+        JumpHold();
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(alive){
-            // flip mario
-            if(Input.GetKeyDown("a") || Input.GetKey(KeyCode.LeftArrow) && faceRightState){
-                faceRightState = false;
-                marioSprite.flipX = true;
-                
-                if(marioBody.velocity.x > 0.1f){
-                    marioAnimator.SetTrigger("onSkid");
-                }
-            }
-
-            if(Input.GetKeyDown("d") || Input.GetKey(KeyCode.RightArrow) && !faceRightState){
-                faceRightState = true;
-                marioSprite.flipX = false;
-
-                if(marioBody.velocity.x < -0.1f){
-                    marioAnimator.SetTrigger("onSkid");
-                }
-            }
-
-            marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
-        }
-        
-    }
-
-    // called 50x a sec
-    void FixedUpdate()
-    {
-        if(alive){
-            float moveHorizontal = Input.GetAxisRaw("Horizontal");
-
-            // moving
-            if(Mathf.Abs(moveHorizontal) > 0){
-                Vector2 movement = new Vector2(moveHorizontal, 0);
-                if(marioBody.velocity.magnitude < maxSpeed){
-                    marioBody.AddForce(movement * speed);
-                }
-                
-            }
-
-            // stop when key is lifted
-            if(Input.GetKeyUp("a") || Input.GetKeyUp("d")){
-                marioBody.velocity = Vector2.zero;
-            }
-
-            // jump
-            if(Input.GetKeyDown("space") && onGroundState){
-                marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
-                onGroundState = false;
-                marioAnimator.SetBool("onGround", onGroundState);
+    // Flip Mario
+    void FlipMarioSprite(int value){
+        if(value == -1 && faceRightState){
+            faceRightState = false;
+            marioSprite.flipX = true;
+            if(marioBody.velocity.x > 0.1f){
+                marioAnimator.SetTrigger("onSkid");
             }
         }
-        
 
-
+        else if(value == 1 && !faceRightState){
+            faceRightState = true;
+            marioSprite.flipX = false;
+            if(marioBody.velocity.x < 0.1f){
+                marioAnimator.SetTrigger("onSkid");
+            }
+        }
     }
 
 
