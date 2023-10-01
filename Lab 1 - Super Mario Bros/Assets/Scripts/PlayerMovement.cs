@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Audio
     public AudioSource marioAudio;
-    public AudioClip marioDeath;
+    public AudioSource marioDeath;
 
     [System.NonSerialized]
     public bool alive = true;
@@ -159,8 +159,7 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
             marioAnimator.Play("Mario Die");
-            marioAudio.PlayOneShot(marioDeath);
-            alive = false;
+            marioDeath.PlayOneShot(marioDeath.clip);            alive = false;
         }
     }
 

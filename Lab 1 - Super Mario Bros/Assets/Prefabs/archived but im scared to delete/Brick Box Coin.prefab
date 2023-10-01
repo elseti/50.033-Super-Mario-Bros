@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116cc0b013b2947cb90cfb00b963a020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionBoxAnimator: {fileID: 5463738902398205565}
+  brickBoxAnimator: {fileID: 0}
   boxAudioSource: {fileID: 4027540502366506238}
   hitDone: 0
 --- !u!68 &1044015397048297983
@@ -341,7 +341,7 @@ AudioSource:
   m_GameObject: {fileID: 3686990215531141222}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3153140019986954750, guid: 738ef7a4449ac4e9f99e1f494187e95a, type: 2}
   m_audioClip: {fileID: 8300000, guid: d885ffc842af744d89f7d595ffcc176a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
