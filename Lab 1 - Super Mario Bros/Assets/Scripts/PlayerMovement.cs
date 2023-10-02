@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
+            other.transform.Find("stomp collider").gameObject.SetActive(false); // so that it doesn't touch the stomping edge collider
             marioAnimator.Play("Mario Die");
             marioDeath.PlayOneShot(marioDeath.clip);            
             alive = false;

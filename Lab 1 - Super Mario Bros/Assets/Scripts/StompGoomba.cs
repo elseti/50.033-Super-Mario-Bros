@@ -24,13 +24,10 @@ public class StompGoomba : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col){
         print("collided");
         if(col.gameObject.CompareTag("Player")){
-            if(!hasCollided){
-                print("in player");
-                goombaAudio.PlayOneShot(goombaAudio.clip);
-                goombaAnim.Play("Goomba Squish");
-                hasCollided = true;
-            }
-            
+            print("in player");
+            goombaAudio.PlayOneShot(goombaAudio.clip);
+            goombaAnim.Play("Goomba Squish");
+            hasCollided = true;
         }
         
     }

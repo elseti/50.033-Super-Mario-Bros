@@ -56,6 +56,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void GameRestart()
     {
+        GetComponent<Animator>().Play("Goomba Walk");
+        this.gameObject.SetActive(true);
+        transform.Find("stomp collider").gameObject.SetActive(true);
         transform.localPosition = startPosition;
         originalX = transform.position.x;
         moveRight = -1;
@@ -65,11 +68,9 @@ public class EnemyMovement : MonoBehaviour
     
     // event used after squish animation
     public void DestroyGoomba(){ // or hide it
-        if(!isDestroyed){
-            gameManager.IncreaseScore(1);
-            this.gameObject.SetActive(false);
-            isDestroyed = true;
-        }
+        gameManager.IncreaseScore(1);
+        this.gameObject.SetActive(false);
+        isDestroyed = true;
         
     }
  
