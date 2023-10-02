@@ -15,8 +15,12 @@ public class EnemyMovement : MonoBehaviour
 
     public Vector3 startPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
+    private GameManager gameManager;
+    private bool isDestroyed = false;
+
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyBody = GetComponent<Rigidbody2D>();
         originalX = transform.position.x; // get the starting position
         ComputeVelocity();
@@ -58,5 +62,16 @@ public class EnemyMovement : MonoBehaviour
         ComputeVelocity();
         
     }
+    
+    // event used after squish animation
+    public void DestroyGoomba(){ // or hide it
+        if(!isDestroyed){
+            gameManager.IncreaseScore(1);
+            this.gameObject.SetActive(false);
+            isDestroyed = true;
+        }
+        
+    }
+ 
 
 }

@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
     // GameManager
     public GameManager gameManager;
 
-
     // Start is called before the first frame update
     void Start()
     {  
@@ -217,4 +216,5 @@ public class PlayerMovement : MonoBehaviour
         alive = false;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
     }
+
 }

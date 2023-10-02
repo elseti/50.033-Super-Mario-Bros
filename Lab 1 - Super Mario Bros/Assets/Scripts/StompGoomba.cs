@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class StompGoomba : MonoBehaviour
 {
+
+    public Animator goombaAnim;
+    public AudioSource goombaAudio;
+    private bool hasCollided = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +24,13 @@ public class StompGoomba : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col){
         print("collided");
         if(col.gameObject.CompareTag("Player")){
-            print("in player");
-            GetComponent<Animator>().Play("Goomba Squish");
+            if(!hasCollided){
+                print("in player");
+                goombaAudio.PlayOneShot(goombaAudio.clip);
+                goombaAnim.Play("Goomba Squish");
+                hasCollided = true;
+            }
+            
         }
         
     }

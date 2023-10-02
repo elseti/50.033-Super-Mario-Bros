@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent gameRestart;
     public UnityEvent<int> scoreChange;
     public UnityEvent gameOver;
-    public UnityEvent goombaSquish;
+    public UnityEvent destroyGoomba;
 
     private int score = 0;
 
@@ -39,11 +39,6 @@ public class GameManager : MonoBehaviour
     {
         score += increment;
         SetScore(score);
-    }
-
-    public void GoombaSquish(){
-        
-        IncreaseScore(1);
     }
 
     public void SetScore(int score)
