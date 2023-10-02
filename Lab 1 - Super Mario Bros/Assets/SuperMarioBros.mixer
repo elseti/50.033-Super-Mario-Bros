@@ -163,6 +163,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!245 &-1739674048444384554
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Loud
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: faa644c9d89b744df9dbdc388ccfad16
+  m_FloatValues:
+    428471a228aa540a291851cc8e3225b1: -65
+    39d4fc04b716b43949e9300acd2fee6c: 1000
+    04212c15dc24b42eb92809f5bb3e65bd: 1.1400865
+    09f808482bd6949b2a8d7cef1660283a: 1.1400865
+    da7379093087846a0a78c7f4d4665f41: 3.704152
+    8a4dfabacb98a410ba543ab7f9a3e2f0: 0
+    32d6284e5b4c84ddfa55692b4abb2134: -4.9356413
+    89ba3daf8da7146a781bad0eda052588: -4.9356437
+  m_TransitionOverrides: {}
 --- !u!243 &-1348174285273066154
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -297,6 +316,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -1739674048444384554}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -313,7 +333,14 @@ AudioMixerController:
     - 9a62ee1bca3654f42a83e8c50dcdfd19
     - 6efecd6ebf9004c7e9842f46c1bc7081
     - 12256e1ad32654e02860c28a611bd12b
-    name: View
+    name: All
+  - guids:
+    - 0f0a9e9cc31fd41d8ab7c6455ff5c115
+    - 6f0fafb5e0c2444bba32fce71373a41a
+    - b6ca8827738e74a0fa1a94541122ce63
+    - 9b378335e7c0b4997bbe14236f06679a
+    - 12256e1ad32654e02860c28a611bd12b
+    name: SFX Only
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
@@ -358,13 +385,15 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Default
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 11a5281603553492b896e739b351aa19
   m_FloatValues:
     428471a228aa540a291851cc8e3225b1: -65
     39d4fc04b716b43949e9300acd2fee6c: 1000
     8a4dfabacb98a410ba543ab7f9a3e2f0: 0
+    32d6284e5b4c84ddfa55692b4abb2134: -4.9356413
+    89ba3daf8da7146a781bad0eda052588: -10.345207
   m_TransitionOverrides: {}
 --- !u!244 &1960011599175857588
 AudioMixerEffectController:

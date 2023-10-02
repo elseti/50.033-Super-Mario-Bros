@@ -153,13 +153,15 @@ public class PlayerMovement : MonoBehaviour
             onGroundState = true;
             marioAnimator.SetBool("onGround", onGroundState);
         }
+
     }
 
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
             marioAnimator.Play("Mario Die");
-            marioDeath.PlayOneShot(marioDeath.clip);            alive = false;
+            marioDeath.PlayOneShot(marioDeath.clip);            
+            alive = false;
         }
     }
 

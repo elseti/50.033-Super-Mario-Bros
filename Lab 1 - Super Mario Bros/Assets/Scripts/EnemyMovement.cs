@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerEnter2D(Collider2D col){
         // Debug.Log(other.gameObject.name);
     }
 
@@ -56,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
         originalX = transform.position.x;
         moveRight = -1;
         ComputeVelocity();
+        
     }
 
 }
