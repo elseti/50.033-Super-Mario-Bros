@@ -22,3 +22,16 @@ public interface IPowerupApplicable
 {
     public void RequestPowerupEffect(Powerup i);
 }
+
+public enum PowerupType
+{
+    Coin = 0,
+    MagicMushroom = 1,
+    OneUpMushroom = 2,
+    StarMan = 3
+}
+
+// made self
+public class Powerup{
+    public int num = 0;
+}
