@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    // SO game score
+    public IntVariable gameScore;
+
     // events
     public UnityEvent gameStart;
     public UnityEvent gameRestart;
@@ -17,6 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        gameScore.Value = 0;
         gameStart.Invoke();
         Time.timeScale = 1.0f;
 
@@ -42,6 +46,7 @@ public class GameManager : Singleton<GameManager>
     public void IncreaseScore(int increment)
     {
         score += increment;
+        gameScore.ApplyChange(increment);
         SetScore(score);
     }
 

@@ -7,6 +7,10 @@ public class HUDManager : MonoBehaviour
 {
     // HUD - Heads-up Display
 
+    // SO game score
+    public IntVariable gameScore;
+    public TextMeshProUGUI highscoreText;
+
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreGameOverText;
     public GameObject gameOverPanel;
@@ -41,6 +45,7 @@ public class HUDManager : MonoBehaviour
     }
 
     public void GameOver(){
+        highscoreText.text = "High Score: " + gameScore.previousHighestValue.ToString("D6"); // D6 -6 zero digits
         gameOverPanel.SetActive(true);
     }
 }
