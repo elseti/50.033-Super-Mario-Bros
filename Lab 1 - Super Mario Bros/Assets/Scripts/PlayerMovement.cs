@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour 
 {
-
+    
     public float speed = 25;
     private Rigidbody2D marioBody;
     public float maxSpeed = 35;
@@ -35,13 +35,12 @@ public class PlayerMovement : Singleton<PlayerMovement>
     public Transform questionBoxes;
     public Transform brickCoinBoxes;
 
+
     
     // InputSystem
     private bool moving = false;
     private  bool jumpedState = false;
 
-    // GameManager
-    // public GameManager gameManager;
 
     void Awake(){
         // subscribe to Game Restart
@@ -57,7 +56,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
         marioAnimator.SetBool("onGround", onGroundState);
 
-        SceneManager.activeSceneChanged += SetStartingPosition;
+        // SceneManager.activeSceneChanged += SetStartingPosition; - if using same mario singleton
         
     }
 

@@ -7,7 +7,7 @@ public class StompGoomba : MonoBehaviour
 
     public Animator goombaAnim;
     public AudioSource goombaAudio;
-    private bool hasCollided = false;
+    // private bool hasCollided = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,6 @@ public class StompGoomba : MonoBehaviour
             print("in player");
             goombaAudio.PlayOneShot(goombaAudio.clip);
             goombaAnim.Play("Goomba Squish");
-            hasCollided = true;
         }
         
     }

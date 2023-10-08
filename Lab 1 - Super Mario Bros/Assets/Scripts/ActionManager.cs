@@ -4,21 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class ActionManager : Singleton<ActionManager>
+public class ActionManager : MonoBehaviour
 {
     public UnityEvent jump;
     public UnityEvent jumpHold;
     public UnityEvent<int> moveCheck;
 
     public void OnJumpHoldAction(InputAction.CallbackContext context){
-        // if(context.started){ print("JumpHold started"); }
-        if (context.performed){
-            // print("JumpHold performed " + context.duration); 
+        if (context.performed){ 
             jumpHold.Invoke();
         }
-        // else if (context.canceled){
-        //     print("context cancelled");
-        // }
     }
 
     // called twice, when pressed and unpressed
@@ -28,22 +23,11 @@ public class ActionManager : Singleton<ActionManager>
         {
             jump.Invoke();
         }
-        // if (context.started)
-        //     Debug.Log("Jump was started");
-        // else if (context.performed)
-        // {
-        //     jump.Invoke();
-        //     Debug.Log("Jump was performed");
-        // }
-        // else if (context.canceled)
-        //     Debug.Log("Jump was cancelled");
-
     }
 
     // called twice, when pressed and unpressed
     public void OnMoveAction(InputAction.CallbackContext context)
     {
-        // Debug.Log("OnMoveAction callback invoked");
         if (context.started)
         {
             int faceRight = context.ReadValue<float>() > 0 ? 1 : -1;
@@ -70,11 +54,11 @@ public class ActionManager : Singleton<ActionManager>
 
     public void OnPointAction(InputAction.CallbackContext context)
     {
-        // if (context.performed)
-        // {
-        //     Vector2 point = context.ReadValue<Vector2>();
-        //     Debug.Log($"Point detected: {point}");
-        // }
+        if (context.performed)
+        {
+            Vector2 point = context.ReadValue<Vector2>();
+            // Debug.Log($"Point detected: {point}");
+        }
     }
 
 }
