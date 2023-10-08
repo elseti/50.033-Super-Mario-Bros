@@ -11,6 +11,13 @@ public class HUDManager : Singleton<HUDManager>
     public TextMeshProUGUI scoreGameOverText;
     public GameObject gameOverPanel;
 
+    void Awake(){
+        GameManager.instance.gameStart.AddListener(GameStart);
+        GameManager.instance.gameOver.AddListener(GameOver);
+        GameManager.instance.gameRestart.AddListener(GameStart);
+        GameManager.instance.scoreChange.AddListener(SetScore);
+    }
+
     void Start()
     {
         

@@ -41,9 +41,14 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private  bool jumpedState = false;
 
     // GameManager
-    public GameManager gameManager;
+    // public GameManager gameManager;
 
-    // Start is called before the first frame update
+    void Awake(){
+        // subscribe to Game Restart
+        GameManager.instance.gameRestart.AddListener(GameRestart);
+    }
+
+
     void Start()
     {  
         Application.targetFrameRate = 30;
@@ -179,7 +184,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
     void GameOverScreen(){
         alive = false;
         Time.timeScale = 0.0f; //freezes time
-        gameManager.GameOver();
+        // gameManager.GameOver();
+        GameManager.instance.GameOver();
     }
 
 
