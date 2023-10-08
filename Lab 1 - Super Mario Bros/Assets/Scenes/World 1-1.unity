@@ -1971,6 +1971,7 @@ GameObject:
   - component: {fileID: 986286125}
   - component: {fileID: 986286124}
   - component: {fileID: 986286127}
+  - component: {fileID: 986286128}
   m_Layer: 5
   m_Name: retryBtn (1)
   m_TagString: Untagged
@@ -2042,9 +2043,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 986286127}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: RestartButtonClick
+      - m_Target: {fileID: 986286128}
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2102,6 +2103,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 414e16f5697244b9a958535906568b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &986286128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986286122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9233501af05e4c3db9a7cd5530d855e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1011075957
@@ -2596,6 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a88fe31e5c940b1952f0f3df7f93a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameConstants: {fileID: 11400000, guid: 16574cc9b5ff04e19818ed1a90a68709, type: 2}
   speed: 25
   maxSpeed: 35
   upSpeed: 24
@@ -3105,21 +3119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameter: 1
-  useInt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 806890180}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1380960393
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,21 +4397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameter: 1
-  useInt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 806890180}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1905848385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,21 +4759,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameter: 1
-  useInt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 806890180}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2021620145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,8 +4844,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021620150}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: RestartButtonClick
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4933,7 +4902,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2021620145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414e16f5697244b9a958535906568b42, type: 3}
+  m_Script: {fileID: 11500000, guid: b9233501af05e4c3db9a7cd5530d855e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &370554126967705397

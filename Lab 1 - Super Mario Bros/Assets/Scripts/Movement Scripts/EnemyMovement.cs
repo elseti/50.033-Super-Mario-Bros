@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    public GameConstants gameConstants;
     private float originalX;
     public float maxOffset = 5.0f;
     public float enemyPatroltime = 2.0f;
@@ -18,6 +18,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        // SO variables
+        enemyPatroltime = gameConstants.goombaPatrolTime;
+        maxOffset = gameConstants.goombaMaxOffset;
+
         enemyBody = GetComponent<Rigidbody2D>();
         originalX = transform.position.x; // get the starting position
         ComputeVelocity();

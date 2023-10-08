@@ -232,7 +232,8 @@ Transform:
   m_LocalPosition: {x: -7.41, y: -7.099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2.05118}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2092484054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &64652134
@@ -603,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a88fe31e5c940b1952f0f3df7f93a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameConstants: {fileID: 11400000, guid: 16574cc9b5ff04e19818ed1a90a68709, type: 2}
   speed: 25
   maxSpeed: 35
   upSpeed: 24
@@ -1663,8 +1665,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 505672855}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: RestartButtonClick
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,7 +1723,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 505672850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414e16f5697244b9a958535906568b42, type: 3}
+  m_Script: {fileID: 11500000, guid: b9233501af05e4c3db9a7cd5530d855e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &509387041
@@ -1780,8 +1782,7 @@ Transform:
   m_LocalPosition: {x: 9.322779, y: -4.2891364, z: 649.8072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2092484054}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &568084426
@@ -3946,8 +3947,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2007484901}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: RestartButtonClick
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4004,7 +4005,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007484896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414e16f5697244b9a958535906568b42, type: 3}
+  m_Script: {fileID: 11500000, guid: b9233501af05e4c3db9a7cd5530d855e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2036576192 stripped
@@ -4277,12 +4278,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092484052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.732779, y: 2.8098636, z: 316.79678}
+  m_LocalScale: {x: 1, y: 1, z: 0.48752427}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 509387043}
+  m_Father: {fileID: 64652133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2125248851
 PrefabInstance:

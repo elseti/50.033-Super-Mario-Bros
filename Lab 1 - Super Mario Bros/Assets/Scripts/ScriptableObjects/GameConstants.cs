@@ -13,8 +13,11 @@ public class GameConstants : ScriptableObject
     public int maxSpeed;
     public int upSpeed;
     public int deathImpulse;
-    public Vector3 marioStartingPosition;
+    public Vector3 marioStartingPosition1_1;
 
+    public Vector3 marioStartingPosition1_3;
+
+    
     // Goomba's movement
     public float goombaPatrolTime;
     public float goombaMaxOffset;

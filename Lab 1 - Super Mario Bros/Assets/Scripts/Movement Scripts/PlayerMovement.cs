@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour 
 {
+    public GameConstants gameConstants;
     
     public float speed = 25;
     private Rigidbody2D marioBody;
@@ -50,6 +51,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {  
+
+        // assigning variable from SO gameConstants
+        speed = gameConstants.speed;
+        maxSpeed = gameConstants.maxSpeed;
+        upSpeed = gameConstants.upSpeed;
+        deathImpulse = gameConstants.deathImpulse;
+        // vector of mario startpos
+
         Application.targetFrameRate = 30;
         marioBody = GetComponent<Rigidbody2D>();
         marioSprite = GetComponent<SpriteRenderer>();

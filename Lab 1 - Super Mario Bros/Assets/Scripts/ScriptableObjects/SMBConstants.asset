@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0721cc7ab604a53a7128ae4abce33e, type: 3}
   m_Name: SMBConstants
   m_EditorClassIdentifier: 
+  maxLives: 10
+  speed: 25
+  maxSpeed: 35
+  upSpeed: 24
+  deathImpulse: 20
+  marioStartingPosition1_1: {x: 0, y: 0, z: 0}
+  marioStartingPosition1_3: {x: 0, y: 0, z: 0}
+  goombaPatrolTime: 2
+  goombaMaxOffset: 5
