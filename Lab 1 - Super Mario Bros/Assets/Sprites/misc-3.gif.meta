@@ -626,6 +626,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: castle-left
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 662
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceeff82cb0cec442698455ce967685d9
+      internalID: -1644510704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: castle-right
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 662
+        width: 41
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4835a7bec7654412bb288cf345fd38c4
+      internalID: -544375901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipe_connector
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1118
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5563183904f82479b875c9808afd91e1
+      internalID: 1794690550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipe_left
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1118
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9914770205c7147578ebda56fa5dc753
+      internalID: 1906616241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -638,6 +722,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       brick_box_1: 927766361
+      castle-left: -1644510704
+      castle-right: -544375901
       cloud_big: -2071528648
       cloud_medium: 640675830
       cloud_small: 26431792
@@ -652,7 +738,9 @@ TextureImporter:
       hill_small: -1777091957
       mushroom_1: -201333030
       pipe_1: 1779848971
+      pipe_connector: 1794690550
       pipe_ext_1: -883321334
+      pipe_left: 1906616241
       platform-1: 1206002231
       question_box_1: -1349687246
       question_box_2: -517996570

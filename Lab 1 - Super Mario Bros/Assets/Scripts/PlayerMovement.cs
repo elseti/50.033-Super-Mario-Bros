@@ -4,14 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
 
-    public float speed = 10;
+    public float speed = 25;
     private Rigidbody2D marioBody;
-    public float maxSpeed = 20;
-    public float upSpeed = 10;
+    public float maxSpeed = 35;
+    public float upSpeed = 24;
     private bool onGroundState = true;
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         marioSprite = GetComponent<SpriteRenderer>();
 
         marioAnimator.SetBool("onGround", onGroundState);
+
+        SceneManager.activeSceneChanged += SetStartingPosition;
         
     }
 
@@ -66,6 +69,13 @@ public class PlayerMovement : MonoBehaviour
             Move(faceRightState == true ? 1 : -1);
         }
 
+    }
+
+    // CHANGE STARTING POSITION WHEN CHANGING SCENE
+    public void SetStartingPosition(Scene current, Scene next){
+        if(next.name == "World 1-2"){
+            this.transform.position = new Vector3(-7.41f, -7.099f, 0f);
+        }
     }
 
     // MOVING ACTIONS
