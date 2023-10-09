@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject blackPanel;
     public AudioSource audioSource;
+    public IntVariable gameScore;
+    public TextMeshProUGUI highScore;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        highScore.text = gameScore.previousHighestValue.ToString("D6");
     }
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void ResetButton(){
-
+        gameScore.ResetHighestValue();
     }
 
     void Fade(){
