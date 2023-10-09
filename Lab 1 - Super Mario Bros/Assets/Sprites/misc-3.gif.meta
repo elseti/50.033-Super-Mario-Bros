@@ -698,7 +698,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -706,6 +706,174 @@ TextureImporter:
       bones: []
       spriteID: 9914770205c7147578ebda56fa5dc753
       internalID: 1906616241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1132
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e54319cb7083403ab1eb7d176a64d9a
+      internalID: -1228202795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1132
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692e486f95111460cac154456eed3f45
+      internalID: 693198509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1132
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61f304d683474fb183c956dc339872a
+      internalID: -1467712725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireflower_4
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1150
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da99eccd4a454f208c366ab1e4070a8
+      internalID: 1540676892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireflower_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1150
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3292e8ec69243d3944da80d0bfb313
+      internalID: -1825041949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireflower_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1150
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33910160df504368b7cf41d4f8ab724
+      internalID: -1891379619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireflower_3
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1150
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14b6451f41b64c9d800b518577c81d8
+      internalID: -800898356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenpole
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1036
+        width: 29
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3950a526d174e9d923d24f493d8265
+      internalID: -867580739
       vertices: []
       indices: 
       edges: []
@@ -732,6 +900,11 @@ TextureImporter:
       coin_3: -1796795607
       coin_4: 1920524353
       coin_normal: -1207154176
+      fireflower_1: -1825041949
+      fireflower_2: -1891379619
+      fireflower_3: -800898356
+      fireflower_4: 1540676892
+      greenpole: -867580739
       ground: 305442579
       ground_break: 1520892528
       hill_big: -1083459783
@@ -749,6 +922,9 @@ TextureImporter:
       shrub_big: 145724518
       shrub_medium: 761285640
       shrub_small: 1717270336
+      star_1: -1228202795
+      star_2: 693198509
+      star_3: -1467712725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

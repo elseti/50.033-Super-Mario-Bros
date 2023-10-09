@@ -383,7 +383,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,6 +391,153 @@ TextureImporter:
       bones: []
       spriteID: 35a5d3e485551485bbe24363d3052920
       internalID: 1683340293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_idle
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 34
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1caea56a91bfe4fbfb2c55b77181b3fc
+      internalID: 1805010728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_walk1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 33
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f6572bb3f944b6e90fe39da9e4cc92
+      internalID: -396501319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_walk2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 33
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44e3c179bc044cb49897ccce26fdb53
+      internalID: 326502860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_walk_3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 33
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab92d05a891e4a8ba23cb94837e542d
+      internalID: 1773594919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_walk_4
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 33
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a339010995684d03894df521d7de889
+      internalID: -90901590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_skid
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 32
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31380bc9268ac49a0b649a63abb5a7a5
+      internalID: -681468265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mario_star_jump
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 32
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab8baa8a0baa43b1bb5512ec2a25780
+      internalID: -1092835016
       vertices: []
       indices: 
       edges: []
@@ -406,6 +553,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      mario_0: -396501319
       mario_die: 1683340293
       mario_hop_left: 1958657903
       mario_hop_right: 483491476
@@ -417,6 +565,13 @@ TextureImporter:
       mario_run_right: -450777856
       mario_stand_left: 612087967
       mario_stand_right: -1232889231
+      mario_star_idle: 1805010728
+      mario_star_jump: -1092835016
+      mario_star_skid: -681468265
+      mario_star_walk1: -396501319
+      mario_star_walk2: 326502860
+      mario_star_walk_3: 1773594919
+      mario_star_walk_4: -90901590
       mario_walk_left: 1624651330
       mario_walk_right: 1751518560
   mipmapLimitGroupName: 

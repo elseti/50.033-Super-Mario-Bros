@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Question Box animator
     public Transform questionBoxes;
     public Transform brickCoinBoxes;
+    public Transform questionStarBoxes;
 
 
     
@@ -226,6 +227,13 @@ public class PlayerMovement : MonoBehaviour
             bcb.GetComponent<Animator>().SetTrigger("restart");
             Transform bcbObj = bcb.Find("brick-box-spring/brick_box_1");
             bcbObj.GetComponent<BrickBoxCoinHit>().hitDone = false;
+        }
+
+        // i probably need to make an actual boxes manager...
+        foreach(Transform bs in questionStarBoxes){
+            bs.GetComponent<Animator>().SetTrigger("restart");
+            Transform bsObj = bs.Find("question-box-spring/question_box_1");
+            bsObj.GetComponent<QuestionBoxStar>().hitDone = false;
         }
 
         // no need to restart brickBox without coin cuz no script it's just existing
