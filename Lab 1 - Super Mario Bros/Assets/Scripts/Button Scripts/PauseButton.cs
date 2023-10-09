@@ -9,6 +9,10 @@ public class PauseButton : MonoBehaviour, IInteractiveButton
     public Sprite pauseIcon;
     public Sprite playIcon;
     private Image image;
+
+    public GameObject pauseImage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +31,12 @@ public class PauseButton : MonoBehaviour, IInteractiveButton
         isPaused = !isPaused;
         if (isPaused)
         {
+            pauseImage.SetActive(true);
             image.sprite = playIcon;
         }
         else
         {
+            pauseImage.SetActive(false);
             image.sprite = pauseIcon;
         }
     }
