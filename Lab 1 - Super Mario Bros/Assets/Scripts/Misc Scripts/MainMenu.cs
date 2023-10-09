@@ -33,6 +33,9 @@ public class MainMenu : MonoBehaviour
 
     public void ResetButton(){
         gameScore.ResetHighestValue();
+        highScore.text = gameScore.previousHighestValue.ToString("D6");
+        GameObject eventSystem = GameObject.Find("EventSystem");
+        eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 
     void Fade(){
