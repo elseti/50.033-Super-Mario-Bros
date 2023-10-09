@@ -14,6 +14,7 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreGameOverText;
     public GameObject gameOverPanel;
+    public GameObject preloadPanel;
 
     void Awake(){
         GameManager.instance.gameStart.AddListener(GameStart);
@@ -24,7 +25,7 @@ public class HUDManager : MonoBehaviour
 
     void Start()
     {
-        
+        preloadPanel.SetActive(true);
     }
 
     // Update is called once per frame
