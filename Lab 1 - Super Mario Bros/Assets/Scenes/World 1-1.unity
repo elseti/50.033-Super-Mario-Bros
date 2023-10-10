@@ -6722,6 +6722,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2039276761}
     m_Modifications:
     - target: {fileID: 2881946880404859971, guid: 11b88f8c7170e4d8c9c794b278b9df34, type: 3}
+      propertyPath: bgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a396fb5db437f453d89c54963e7b9719, type: 3}
+    - target: {fileID: 2881946880404859971, guid: 11b88f8c7170e4d8c9c794b278b9df34, type: 3}
+      propertyPath: bgmAudio
+      value: 
+      objectReference: {fileID: 281311471}
+    - target: {fileID: 2881946880404859971, guid: 11b88f8c7170e4d8c9c794b278b9df34, type: 3}
       propertyPath: marioAnimator
       value: 
       objectReference: {fileID: 1146390489}

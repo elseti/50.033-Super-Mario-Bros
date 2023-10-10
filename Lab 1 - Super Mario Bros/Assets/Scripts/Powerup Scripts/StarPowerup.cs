@@ -8,6 +8,7 @@ public class StarPowerup : MonoBehaviour
 
     public Animator marioAnimator;
     public AudioSource starAudio;
+    public AudioSource bgmAudio;
     public AudioClip bgmClip;
     public BoxCollider2D starMarioCollider;
     private bool starDone = false;
@@ -37,8 +38,8 @@ public class StarPowerup : MonoBehaviour
     void ResetStar(int powerupType){
         if(powerupType == 1){
             this.gameObject.SetActive(true);
-            starAudio.Stop();
-            starAudio.PlayOneShot(bgmClip);
+            bgmAudio.Stop();
+            bgmAudio.PlayOneShot(bgmClip);
         }
     }
 

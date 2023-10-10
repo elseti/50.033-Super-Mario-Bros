@@ -4718,6 +4718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marioAnimator: {fileID: 64652137}
   starAudio: {fileID: 1490993333}
+  bgmAudio: {fileID: 383751652}
   bgmClip: {fileID: 8300000, guid: a396fb5db437f453d89c54963e7b9719, type: 3}
   starMarioCollider: {fileID: 143398723}
 --- !u!61 &1490993335
