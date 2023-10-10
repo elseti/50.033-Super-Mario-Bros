@@ -29,7 +29,9 @@ public class StompGoomba : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col){
         if(starPowerup){
-            // TODO: kill goomba
+            goombaAudio.PlayOneShot(goombaAudio.clip);
+            goombaAudio.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            goombaAnim.Play("Goomba Topple");
         }
         else{
             if(col.gameObject.CompareTag("Player")){

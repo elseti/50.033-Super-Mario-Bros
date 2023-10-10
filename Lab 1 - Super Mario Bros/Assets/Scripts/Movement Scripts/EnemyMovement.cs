@@ -57,8 +57,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void GameRestart()
     {
-        GetComponent<Animator>().Play("Goomba Walk");
         this.gameObject.SetActive(true);
+        GetComponent<Animator>().Play("Goomba Walk");
+        GetComponent<PolygonCollider2D>().enabled = true; // not really necessary but oh well
         transform.Find("stomp collider").gameObject.SetActive(true);
         transform.localPosition = startPosition;
         originalX = transform.position.x;

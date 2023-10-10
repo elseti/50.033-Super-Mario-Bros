@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     private bool moving = false;
     private  bool jumpedState = false;
 
-    // PowerUp
     private bool starPowerup = false;
 
 
@@ -187,13 +186,13 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
-            if(!starPowerup){ // if star, ignore enemy 
-                other.transform.Find("stomp collider").gameObject.SetActive(false); // so that it doesn't touch the stomping edge collider
+            if(!starPowerup){ 
+                other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
                 marioAnimator.Play("Mario Die");
                 marioDeath.PlayOneShot(marioDeath.clip);            
                 alive = false;
             }
-            else{
+            else{ // if star, ignore enemy 
                 print("enemy ignored due to star powerup");
             }  
         }
@@ -285,6 +284,10 @@ public class PlayerMovement : MonoBehaviour
             Transform bsObj = bs.Find("question-box-spring/question_box_1");
             bsObj.GetComponent<QuestionBoxStar>().hitDone = false;
         }
+
+        // reset powerups
+        GameManager.instance.EndPowerup(1);
+        // 2, 3, etc...
 
         // no need to restart brickBox without coin cuz no script it's just existing
     }

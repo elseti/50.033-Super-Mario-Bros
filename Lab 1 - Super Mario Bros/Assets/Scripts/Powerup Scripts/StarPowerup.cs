@@ -11,7 +11,9 @@ public class StarPowerup : MonoBehaviour
     public BoxCollider2D starMarioCollider;
     private bool starDone = false;
 
-    // Start is called before the first frame update
+    void Awake(){  
+        GameManager.instance.endPowerup.AddListener(ResetStar);
+    }
     void Start()
     {
         
@@ -31,14 +33,8 @@ public class StarPowerup : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    void Wait(float seconds){
-        StartCoroutine(WaitCoroutine(seconds));
-    }
-
-    private IEnumerator WaitCoroutine(float seconds){
-        yield return new WaitForSecondsRealtime(seconds);
-        print("coroutine done");
-        starDone = true;
+    void ResetStar(int powerupType){
+        if(powerupType == 1) this.gameObject.SetActive(true);
     }
 
 }

@@ -16,6 +16,7 @@ public class PowerupManager : MonoBehaviour
 
     void Awake(){
         GameManager.instance.startPowerup.AddListener(StartPowerup);
+        GameManager.instance.endPowerup.AddListener(ResetPowerup);
     }
 
     void Start()
@@ -27,18 +28,52 @@ public class PowerupManager : MonoBehaviour
     void Update()
     {
         if(starDone){
-            starDone = false;
             StarPowerupEnd();
         }
     }
 
     public void StartPowerup(int powerupType){
-        print("Power up type: " + powerupType);
-
         // star mario
         if(powerupType == 1){
-            
             StarPowerupStart();
+        }
+
+        else if(powerupType == 2){
+
+        }
+
+        else if(powerupType == 3){
+
+        }
+
+        else if(powerupType == 4){
+
+        }
+    }
+
+    public void EndPowerup(int powerupType){
+        // star mario
+        if(powerupType == 1){
+            StarPowerupEnd();
+        }
+
+        else if(powerupType == 2){
+
+        }
+
+        else if(powerupType == 3){
+
+        }
+
+        else if(powerupType == 4){
+
+        }
+    }
+
+    public void ResetPowerup(int powerupType){
+        // star mario
+        if(powerupType == 1){
+            StarPowerupReset();
         }
 
         else if(powerupType == 2){
@@ -63,12 +98,24 @@ public class PowerupManager : MonoBehaviour
     }
 
     public void StarPowerupEnd(){
+        starDone = false;
         print("stardone false again");
         bgmAudio.Stop();
         bgmAudio.PlayOneShot(bgmAudio.clip);
         marioAnimator.Play("Mario Idle");
         starMarioCollider.enabled = false; // disable big collider again
         GameManager.instance.EndPowerup(1);
+    }
+
+    // only difference is not calling GameManager's EndPowerup to avoid infinite loop
+    public void StarPowerupReset(){
+        starDone = false;
+        print("stardone false again");
+        bgmAudio.Stop();
+        bgmAudio.PlayOneShot(bgmAudio.clip);
+        marioAnimator.Play("Mario Idle");
+        starMarioCollider.enabled = false; // disable big collider again
+        StopCoroutine("WaitCoroutine");
     }
 
     void Wait(float seconds){
