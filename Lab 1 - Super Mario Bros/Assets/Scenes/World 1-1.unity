@@ -2234,6 +2234,12 @@ MonoBehaviour:
   destroyGoomba:
     m_PersistentCalls:
       m_Calls: []
+  startPowerup:
+    m_PersistentCalls:
+      m_Calls: []
+  endPowerup:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &806890181
 Transform:
   m_ObjectHideFlags: 0
@@ -2410,7 +2416,7 @@ Transform:
   m_GameObject: {fileID: 948870792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.81, y: -2.12, z: 0}
+  m_LocalPosition: {x: 16.15, y: -2.45, z: 0}
   m_LocalScale: {x: 0.13379, y: 0.13379, z: 0.13379}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3910,7 +3916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307299938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4101,6 +4107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1428082683}
+  - component: {fileID: 1428082684}
   m_Layer: 7
   m_Name: OBSTACLES
   m_TagString: Untagged
@@ -4126,6 +4133,23 @@ Transform:
   - {fileID: 1553568907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1428082684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428082682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2dc15c63cdf4844b0019f2cdcaf4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marioAnimator: {fileID: 1146390489}
+  bgmAudio: {fileID: 281311471}
+  starBgm: {fileID: 8300000, guid: fe80c79237cc34e99babbc6d54016d93, type: 3}
+  starMarioCollider: {fileID: 1557623100}
+  starPowerupTime: 15
 --- !u!4 &1447984353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1163087565825288868, guid: d824aa20b25614708aac6e361d3aaa38, type: 3}

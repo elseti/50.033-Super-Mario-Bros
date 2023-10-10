@@ -43,10 +43,15 @@ public class PlayerMovement : MonoBehaviour
     private bool moving = false;
     private  bool jumpedState = false;
 
+    // PowerUp
+    private bool starPowerup = false;
+
 
     void Awake(){
-        // subscribe to Game Restart
+        // subscription
         GameManager.instance.gameRestart.AddListener(GameRestart);
+        GameManager.instance.startPowerup.AddListener(StartPowerup);
+        GameManager.instance.endPowerup.AddListener(EndPowerup);
     }
 
 
@@ -182,12 +187,57 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
-            other.transform.Find("stomp collider").gameObject.SetActive(false); // so that it doesn't touch the stomping edge collider
-            marioAnimator.Play("Mario Die");
-            marioDeath.PlayOneShot(marioDeath.clip);            
-            alive = false;
+            if(!starPowerup){ // if star, ignore enemy 
+                other.transform.Find("stomp collider").gameObject.SetActive(false); // so that it doesn't touch the stomping edge collider
+                marioAnimator.Play("Mario Die");
+                marioDeath.PlayOneShot(marioDeath.clip);            
+                alive = false;
+            }
+            else{
+                print("enemy ignored due to star powerup");
+            }  
         }
     }
+
+    // POWERUP METHODS
+    public void StartPowerup(int powerupType){
+        // star mario
+        if(powerupType == 1){
+            starPowerup = true;
+        }
+
+        else if(powerupType == 2){
+
+        }
+
+        else if(powerupType == 3){
+
+        }
+        
+        else if(powerupType == 4){
+
+        }
+    }
+
+    public void EndPowerup(int powerupType){
+        // star mario
+        if(powerupType == 1){
+            starPowerup = false;
+        }
+
+        else if(powerupType == 2){
+
+        }
+
+        else if(powerupType == 3){
+
+        }
+        
+        else if(powerupType == 4){
+
+        }
+    }
+    
 
     // called in death animation TODO: DELETE LTR
     void GameOverScreen(){

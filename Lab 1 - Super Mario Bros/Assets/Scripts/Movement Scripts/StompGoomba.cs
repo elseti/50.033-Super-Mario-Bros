@@ -7,9 +7,15 @@ public class StompGoomba : MonoBehaviour
 
     public Animator goombaAnim;
     public AudioSource goombaAudio;
+    private bool starPowerup = false;
     // private bool hasCollided = false;
 
     // Start is called before the first frame update
+
+    void Awake(){
+        GameManager.instance.startPowerup.AddListener(StartPowerup);
+        GameManager.instance.endPowerup.AddListener(EndPowerup);
+    }
     void Start()
     {
         
@@ -22,12 +28,31 @@ public class StompGoomba : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
-        print("collided");
-        if(col.gameObject.CompareTag("Player")){
-            print("in player");
-            goombaAudio.PlayOneShot(goombaAudio.clip);
-            goombaAnim.Play("Goomba Squish");
+        if(starPowerup){
+            // TODO: kill goomba
+        }
+        else{
+            if(col.gameObject.CompareTag("Player")){
+                print("in player");
+                goombaAudio.PlayOneShot(goombaAudio.clip);
+                goombaAnim.Play("Goomba Squish");
+            }
         }
         
+        
+    }
+
+    public void StartPowerup(int powerupType){
+        // star powerup
+        if(powerupType == 1){
+            starPowerup = true;
+        }
+    }
+
+    public void EndPowerup(int powerupType){
+        // star powerup
+        if(powerupType == 1){
+            starPowerup = false;
+        }
     }
 }

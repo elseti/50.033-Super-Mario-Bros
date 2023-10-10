@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     public UnityEvent<int> scoreChange;
     public UnityEvent gameOver;
     public UnityEvent destroyGoomba;
+    public UnityEvent<int> startPowerup;
+    public UnityEvent<int> endPowerup;
 
     private int score = 0;
 
@@ -65,5 +67,16 @@ public class GameManager : Singleton<GameManager>
     public void SceneSetup(Scene current, Scene next){
         gameStart.Invoke();
         SetScore(score);
+    }
+
+    // Star Powerup
+    public void StartPowerup(int powerupType){
+        print("starting powerup game manager" + powerupType);
+        startPowerup.Invoke(powerupType);
+    }
+
+    public void EndPowerup(int powerupType){
+        print("ending powerup game manager" + powerupType);
+        endPowerup.Invoke(powerupType);
     }
 }
