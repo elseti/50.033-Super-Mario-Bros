@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     public UnityEvent destroyGoomba;
     public UnityEvent<int> startPowerup;
     public UnityEvent<int> endPowerup;
+    public UnityEvent<int> resetPowerup;
 
     private int score = 0;
 
@@ -78,5 +79,11 @@ public class GameManager : Singleton<GameManager>
     public void EndPowerup(int powerupType){
         print("ending powerup game manager" + powerupType);
         endPowerup.Invoke(powerupType);
+    }
+
+    // only used in StarPowerup reset for now
+    public void ResetPowerup(int powerupType){
+        print("reseting powerup " + powerupType);
+        resetPowerup.Invoke(powerupType);
     }
 }

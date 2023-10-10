@@ -17,6 +17,7 @@ public class PowerupManager : MonoBehaviour
     void Awake(){
         GameManager.instance.startPowerup.AddListener(StartPowerup);
         GameManager.instance.endPowerup.AddListener(ResetPowerup);
+        // GameManager.instance.resetPowerup.AddListener(ResetPowerup);
     }
 
     void Start()

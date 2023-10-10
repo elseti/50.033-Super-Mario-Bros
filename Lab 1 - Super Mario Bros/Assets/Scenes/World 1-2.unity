@@ -1377,7 +1377,7 @@ Transform:
   m_GameObject: {fileID: 143398721}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47000027, y: 1.2989998, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2030,7 +2030,7 @@ GameObject:
   - component: {fileID: 432776265}
   - component: {fileID: 432776267}
   - component: {fileID: 432776266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipe_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2414,6 +2414,9 @@ MonoBehaviour:
   endPowerup:
     m_PersistentCalls:
       m_Calls: []
+  resetPowerup:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &509387043
 Transform:
   m_ObjectHideFlags: 0
@@ -2742,7 +2745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 670667519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3901,6 +3904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: short_pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 3687650599219095446, guid: 606bbacf3db0f4bd4b87a0f0dc94e918, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3719582570760164883, guid: 606bbacf3db0f4bd4b87a0f0dc94e918, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1666842
@@ -3962,7 +3969,7 @@ GameObject:
   - component: {fileID: 1278065258}
   - component: {fileID: 1278065257}
   - component: {fileID: 1278065259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipe_connector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4610,7 +4617,7 @@ AudioSource:
   m_GameObject: {fileID: 1490993331}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7189628150449153150, guid: 738ef7a4449ac4e9f99e1f494187e95a, type: 2}
+  OutputAudioMixerGroup: {fileID: 6333823091512574413, guid: 738ef7a4449ac4e9f99e1f494187e95a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 26301d2e86e99420599e315297a825df, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4711,6 +4718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marioAnimator: {fileID: 64652137}
   starAudio: {fileID: 1490993333}
+  bgmClip: {fileID: 8300000, guid: a396fb5db437f453d89c54963e7b9719, type: 3}
   starMarioCollider: {fileID: 143398723}
 --- !u!61 &1490993335
 BoxCollider2D:
@@ -6031,37 +6039,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753940157}
   m_CullTransparentMesh: 1
---- !u!1 &1772508896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1772508897}
-  m_Layer: 0
-  m_Name: Mario Container
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1772508897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772508896}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776276597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6491,6 +6468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseIcon: {fileID: 21300000, guid: cc16a8195c6624695a0151daf9a3ffac, type: 3}
   playIcon: {fileID: 21300000, guid: 5001b0a7ab7084913b5009414d1ed97b, type: 3}
+  bgmAudio: {fileID: 383751652}
   pauseImage: {fileID: 274892213}
 --- !u!114 &1982182929
 MonoBehaviour:
@@ -6830,7 +6808,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1211888276}
   - {fileID: 64652133}
-  - {fileID: 1772508897}
   - {fileID: 1707799550}
   - {fileID: 1528898130}
   - {fileID: 1393211494}

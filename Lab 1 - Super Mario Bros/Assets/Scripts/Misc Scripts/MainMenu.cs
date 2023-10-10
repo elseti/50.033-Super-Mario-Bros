@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
     }
 
     void Fade(){
-        StartCoroutine(IncreaseAlphaImageCoroutine(blackPanel, 0.05f));
+        StartCoroutine(IncreaseAlphaImageCoroutine(blackPanel, 0.1f));
     }
 
     private IEnumerator DecreaseAlphaImageCoroutine(GameObject gameObject, float multiplier){

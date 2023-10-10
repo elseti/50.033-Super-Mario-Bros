@@ -8,6 +8,7 @@ public class PauseButton : MonoBehaviour, IInteractiveButton
     private bool isPaused = false;
     public Sprite pauseIcon;
     public Sprite playIcon;
+    public AudioSource bgmAudio;
     private Image image;
 
     public GameObject pauseImage;
@@ -32,10 +33,12 @@ public class PauseButton : MonoBehaviour, IInteractiveButton
         if (isPaused)
         {
             pauseImage.SetActive(true);
+            bgmAudio.Pause();
             image.sprite = playIcon;
         }
         else
         {
+            bgmAudio.UnPause();
             pauseImage.SetActive(false);
             image.sprite = pauseIcon;
         }

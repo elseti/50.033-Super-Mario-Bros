@@ -287,6 +287,7 @@ public class PlayerMovement : MonoBehaviour
 
         // reset powerups
         GameManager.instance.EndPowerup(1);
+        GameManager.instance.ResetPowerup(1);
         // 2, 3, etc...
 
         // no need to restart brickBox without coin cuz no script it's just existing
