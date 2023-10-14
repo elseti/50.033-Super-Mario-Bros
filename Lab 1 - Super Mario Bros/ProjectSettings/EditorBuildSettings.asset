@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Archived/MainMenu.unity
-    guid: 2bf921ef3574d47f1a642491db82f64d
+    path: Assets/Scenes/New MainMenu.unity
+    guid: 3ca227b7bba754c1a86659e9e298488b
   - enabled: 1
-    path: Assets/Scenes/Archived/World 1-1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/New World 1-1.unity
+    guid: 3720a1dd3835c450a84e2b245fa8efe9
   - enabled: 1
-    path: Assets/Scenes/Archived/World 1-2.unity
-    guid: 991da709d74fc4a4e938cad52e712def
+    path: Assets/Scenes/New World 1-2.unity
+    guid: 244792fbc3988494185a0a9215edfea7
   m_configObjects: {}

@@ -3341,7 +3341,8 @@ GameObject:
   - component: {fileID: 1211888276}
   - component: {fileID: 1211888275}
   - component: {fileID: 1211888274}
-  - component: {fileID: 1211888273}
+  - component: {fileID: 1211888278}
+  - component: {fileID: 1211888279}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3349,19 +3350,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1211888273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211888272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044febe651f3045168ab37579672bfa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endLimit: {fileID: 44675853}
 --- !u!81 &1211888274
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3436,6 +3424,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211888278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211888272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75927f4319754ae6b8cb39d00a375ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endLimit: {fileID: 44675853}
+--- !u!114 &1211888279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211888272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4c019674424d04ac79dd6dd024b76029, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1211888278}
+        m_TargetAssemblyTypeName: NewCameraController, Assembly-CSharp
+        m_MethodName: GameRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1218412590
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,7 +4268,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528898125}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PreloadButton, Assembly-CSharp
         m_MethodName: BackToMainMenuButton
         m_Mode: 1
@@ -4546,8 +4575,6 @@ GameObject:
   - component: {fileID: 1528898129}
   - component: {fileID: 1528898128}
   - component: {fileID: 1528898127}
-  - component: {fileID: 1528898126}
-  - component: {fileID: 1528898125}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4555,39 +4582,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1528898125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528898124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef25b1d5d5f846c0a51f45708b8c040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preloadCanvas: {fileID: 1118240488}
-  gameScore: {fileID: 11400000, guid: 1fbb4731dd6fd45308b3ce16974a8fe0, type: 2}
-  highScore: {fileID: 1608703221}
---- !u!114 &1528898126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528898124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0c382e216964050b203d97a16dada6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameScore: {fileID: 11400000, guid: 1fbb4731dd6fd45308b3ce16974a8fe0, type: 2}
-  highscoreText: {fileID: 1817995950}
-  scoreText: {fileID: 1317483830}
-  scoreGameOverText: {fileID: 35808704}
-  gameOverPanel: {fileID: 1060769905}
-  preloadPanel: {fileID: 1118240484}
 --- !u!114 &1528898127
 MonoBehaviour:
   m_ObjectHideFlags: 0
