@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8825155098471460173}
   - component: {fileID: 6538750423332966120}
   - component: {fileID: 1931850999136906493}
+  - component: {fileID: 2508014938698909742}
   m_Layer: 0
   m_Name: New Goomba
   m_TagString: Enemy
@@ -291,6 +292,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2508014938698909742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842574416547854748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b23bb0b9ac74346b403b6bd8d31440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameConstants: {fileID: 11400000, guid: 16574cc9b5ff04e19818ed1a90a68709, type: 2}
+  maxOffset: 5
+  enemyPatroltime: 2
+  damagePlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f1af54d797aef485a89fbdb0aca95433, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[UnityEngine.Object, UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8204855645655850251
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +334,7 @@ GameObject:
   - component: {fileID: 6380416443212085044}
   - component: {fileID: 1065535098298402335}
   - component: {fileID: 3528764587316466373}
+  - component: {fileID: 7700644484541403495}
   m_Layer: 0
   m_Name: stomp collider
   m_TagString: Untagged
@@ -384,3 +417,32 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &7700644484541403495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204855645655850251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da01c0d69b6944a58a0de8ecf71117e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goombaAnim: {fileID: 6538750423332966120}
+  goombaAudio: {fileID: 1931850999136906493}
+  increaseScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5ea043b43825a4629b29a7fb528186cb, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[System.Int32, mscorlib
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -39,11 +39,11 @@ public class NewGameManager : MonoBehaviour
     }
 
     public void PauseGame(){
-
+        Time.timeScale = 0.0f;
     }
 
     public void ResumeGame(){
-        
+        Time.timeScale = 1.0f;
     }
 
     public void GameOver(){
@@ -60,7 +60,12 @@ public class NewGameManager : MonoBehaviour
     }
 
     public void RequestPowerupEffect(IPowerup i){
+        // TODO
+    }
 
+    public void IncreaseScore(int increment){
+        score += increment;
+        gameScore.ApplyChange(increment);
     }
 
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OneArgsGameEventListener : GameEventListener<Object>
+public class IntGameEventListener : GameEventListener<int>
 {
 
 }

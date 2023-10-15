@@ -239,7 +239,7 @@ public class NewPlayerController : MonoBehaviour
         alive = false;
         Time.timeScale = 0.0f; //freezes time
         // gameManager.GameOver();
-        GameManager.instance.GameOver();
+        GameManager.instance.GameOver(); // change
     }
 
 
