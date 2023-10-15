@@ -10,7 +10,6 @@ public class NewEnemyController : MonoBehaviour
     public float maxOffset = 5.0f;
     public float enemyPatroltime = 2.0f;
     private int moveRight = -1;
-    public UnityEvent damagePlayer;
     private Vector2 velocity;
 
     private Rigidbody2D enemyBody;
@@ -73,7 +72,6 @@ public class NewEnemyController : MonoBehaviour
     
     // event used after squish animation
     public void DestroyGoomba(){ // or hide it
-        damagePlayer.Invoke();
         this.gameObject.SetActive(false);
     }
  

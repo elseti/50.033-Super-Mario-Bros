@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class NewGameManager : MonoBehaviour
 {
     // SO game score
+    public IntVariable highScore;
     public IntVariable gameScore;
 
     // events
@@ -16,7 +17,8 @@ public class NewGameManager : MonoBehaviour
 
     void Start()
     {
-        gameScore.Value = 0;
+        gameScore.Value = 0; // idt i shud do dis
+        score = 0;
         
         Time.timeScale = 1.0f;
 
@@ -47,6 +49,8 @@ public class NewGameManager : MonoBehaviour
     }
 
     public void GameOver(){
+        print("game over");
+        highScore.SetValue(gameScore.Value);
         Time.timeScale = 0.0f;
     }
 
@@ -65,7 +69,13 @@ public class NewGameManager : MonoBehaviour
 
     public void IncreaseScore(int increment){
         score += increment;
-        gameScore.ApplyChange(increment);
+        gameScore.ApplyChange(increment); 
+        highScore.SetValue(gameScore.Value);
+        updateScore.Invoke();
+    }
+
+    public void SetScore(){
+        updateScore.Invoke();
     }
 
 

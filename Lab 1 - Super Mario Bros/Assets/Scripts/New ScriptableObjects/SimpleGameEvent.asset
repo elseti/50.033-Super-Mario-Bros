@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273e6b059df01494aa7f8f7a38e0b23d, type: 3}
-  m_Name: GameScore
+  m_Script: {fileID: 11500000, guid: 677e5f65cc9d64e718b913bb5e808549, type: 3}
+  m_Name: SimpleGameEvent
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  previousHighestValue: 0

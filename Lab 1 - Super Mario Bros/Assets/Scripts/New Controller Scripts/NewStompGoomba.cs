@@ -10,7 +10,7 @@ public class NewStompGoomba : MonoBehaviour
     public AudioSource goombaAudio;
     private bool starPowerup = false;
     
-    public UnityEvent<int> increaseScore;
+    public UnityEvent increaseScore;
     
     // private bool hasCollided = false;
 
@@ -32,6 +32,7 @@ public class NewStompGoomba : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
+        print("collided in goomba");
         if(starPowerup){
             goombaAudio.PlayOneShot(goombaAudio.clip);
             goombaAudio.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
@@ -44,7 +45,7 @@ public class NewStompGoomba : MonoBehaviour
                 goombaAnim.Play("Goomba Squish");
             }
         }
-        increaseScore.Invoke(1);
+        increaseScore.Invoke();
     }
 
     public void StartPowerup(int powerupType){

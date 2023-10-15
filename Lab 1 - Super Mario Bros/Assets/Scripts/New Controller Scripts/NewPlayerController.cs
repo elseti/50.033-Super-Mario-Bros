@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class NewPlayerController : MonoBehaviour 
 {
@@ -36,14 +37,16 @@ public class NewPlayerController : MonoBehaviour
     // public Transform questionBoxes;
     // public Transform brickCoinBoxes;
     // public Transform questionStarBoxes;
-
-
     
     // InputSystem
     private bool moving = false;
     private  bool jumpedState = false;
 
     private bool starPowerup = false;
+
+    // UnityEvents invoke
+    public UnityEvent gameOver;
+
 
 
     void Awake(){
@@ -238,8 +241,7 @@ public class NewPlayerController : MonoBehaviour
     void GameOverScreen(){
         alive = false;
         Time.timeScale = 0.0f; //freezes time
-        // gameManager.GameOver();
-        GameManager.instance.GameOver(); // change
+        gameOver.Invoke();
     }
 
 

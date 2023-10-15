@@ -23,7 +23,7 @@ public class NewEnemyManager : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            child.GetComponent<EnemyMovement>().GameRestart();
+            child.GetComponent<NewEnemyController>().GameRestart();
         }
 
     }
