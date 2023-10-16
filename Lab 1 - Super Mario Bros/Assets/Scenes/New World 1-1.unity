@@ -3147,6 +3147,10 @@ GameObject:
   - component: {fileID: 1146390494}
   - component: {fileID: 1146390493}
   - component: {fileID: 1146390496}
+  - component: {fileID: 1146390497}
+  - component: {fileID: 1146390499}
+  - component: {fileID: 1146390498}
+  - component: {fileID: 1146390500}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Player
@@ -3666,6 +3670,135 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1146390497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd7c35036d004f9a834e03188c3a5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startState: {fileID: 11400000, guid: 23f095a0c139d4ea985d07a4312e832b, type: 2}
+  previousState: {fileID: 11400000, guid: 23f095a0c139d4ea985d07a4312e832b, type: 2}
+  currentState: {fileID: 11400000, guid: 23f095a0c139d4ea985d07a4312e832b, type: 2}
+  remainState: {fileID: 11400000, guid: 63bb8c00b4dad4f41b302d808cc0581f, type: 2}
+  transitionStateChanged: 0
+  stateTimeElapsed: 0
+  currentPowerupType: -1
+  shouldBeNextState: -1
+  gameConstants: {fileID: 11400000, guid: 16574cc9b5ff04e19818ed1a90a68709, type: 2}
+--- !u!114 &1146390498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 7c695f13fa5d049bea274c506e43b1f4, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146390499}
+        m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
+        m_MethodName: StartStarPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1146390494}
+        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+        m_MethodName: StartStarPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1146390499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c41de88f5264ef38e4d33c6c56fff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starMarioCollider: {fileID: 1557623100}
+  endStarPowerup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e5453df1b52a74054889e9e8d6bb41f0, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[UnityEngine.Object, UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1146390500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e5453df1b52a74054889e9e8d6bb41f0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146390499}
+        m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
+        m_MethodName: EndStarPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1146390494}
+        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+        m_MethodName: EndStarPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7250,8 +7383,8 @@ GameObject:
   - component: {fileID: 6229905651261577747}
   - component: {fileID: 456917589046916837}
   - component: {fileID: 2776007895679081748}
-  - component: {fileID: 3704552894785013891}
   - component: {fileID: 9016312429906414673}
+  - component: {fileID: 9016312429906414674}
   m_Layer: 7
   m_Name: Star
   m_TagString: Untagged
@@ -7734,23 +7867,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3704552894785013891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909445022246898985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb45982b5b024cb786f82e5b54ec95f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marioAnimator: {fileID: 1146390489}
-  starAudio: {fileID: 9016312429906414673}
-  bgmAudio: {fileID: 281311471}
-  bgmClip: {fileID: 8300000, guid: a396fb5db437f453d89c54963e7b9719, type: 3}
-  starMarioCollider: {fileID: 1557623100}
 --- !u!4 &3929437429433228030
 Transform:
   m_ObjectHideFlags: 0
@@ -8321,7 +8437,7 @@ Transform:
   m_GameObject: {fileID: 7959417680978024566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.34, y: 0.03, z: 829.2041}
+  m_LocalPosition: {x: 3.59, y: -0.25, z: 829.2041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9153,6 +9269,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9016312429906414674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909445022246898985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4f28e66b0134439bed4c815d4a823b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marioAnimator: {fileID: 1146390489}
+  starAudio: {fileID: 9016312429906414673}
+  bgmAudio: {fileID: 281311471}
+  bgmClip: {fileID: 8300000, guid: fe80c79237cc34e99babbc6d54016d93, type: 3}
+  starMarioCollider: {fileID: 1557623100}
+  startStarPowerup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7c695f13fa5d049bea274c506e43b1f4, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[UnityEngine.Object, UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

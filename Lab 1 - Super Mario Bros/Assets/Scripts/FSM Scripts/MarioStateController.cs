@@ -7,7 +7,9 @@ public class MarioStateController : StateController
 {
     public PowerupType currentPowerupType = PowerupType.Default;
     public MarioState shouldBeNextState = MarioState.Default;
+    public GameConstants gameConstants;
 
+    private SpriteRenderer spriteRenderer;
 
     public override void Start()
     {
@@ -29,6 +31,35 @@ public class MarioStateController : StateController
         currentPowerupType = i;
     }
 
+    public void SetRendererToFlicker()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        StartCoroutine(BlinkSpriteRenderer());
+    }
+
+    private IEnumerator BlinkSpriteRenderer()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        while (string.Equals(currentState.name, "InvincibleSmallMario", StringComparison.OrdinalIgnoreCase))
+        {
+            // Toggle the visibility of the sprite renderer
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+
+            // Wait for the specified blink interval
+            yield return new WaitForSeconds(gameConstants.flickerInterval);
+        }
+
+        spriteRenderer.enabled = true;
+    }
+
+    public void Fire()
+    {
+        this.currentState.DoEventTriggeredActions(this, ActionType.Attack);
+    }
+
+
+}
+
 
 public enum MarioState
 {
@@ -38,5 +69,4 @@ public enum MarioState
     FireMario = 2,
     InvincibleSmallMario = 3,
     DeadMario = 99
-}
 }

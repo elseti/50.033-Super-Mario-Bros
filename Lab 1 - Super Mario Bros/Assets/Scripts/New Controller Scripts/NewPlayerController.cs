@@ -198,43 +198,14 @@ public class NewPlayerController : MonoBehaviour
     }
 
     // POWERUP METHODS
-    public void StartPowerup(int powerupType){
-        // star mario
-        if(powerupType == 1){
-            starPowerup = true;
-        }
-
-        else if(powerupType == 2){
-
-        }
-
-        else if(powerupType == 3){
-
-        }
-        
-        else if(powerupType == 4){
-
-        }
+    public void StartStarPowerup(){
+        starPowerup = true;
     }
 
-    public void EndPowerup(int powerupType){
-        // star mario
-        if(powerupType == 1){
-            starPowerup = false;
-        }
-
-        else if(powerupType == 2){
-
-        }
-
-        else if(powerupType == 3){
-
-        }
-        
-        else if(powerupType == 4){
-
-        }
+    public void EndStarPowerup(){
+        starPowerup = false;
     }
+
     
 
     // called in death animation TODO: DELETE LTR
@@ -260,36 +231,6 @@ public class NewPlayerController : MonoBehaviour
 
         // reset camera position
         gameCamera.position = new Vector3(-4.927341f, -3.865316f, -5.233578f);
-
-    /*
-        // restart each questionBox from the parent gameobject
-        foreach(Transform qb in questionBoxes){
-            qb.GetComponent<Animator>().SetTrigger("restart");
-            Transform qbObj = qb.Find("question-box-spring/question_box_1");
-            qbObj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            qbObj.GetComponent<QuestionBoxHit>().hitDone = false;
-        }
-
-        // restart each brickBox with coin
-        foreach(Transform bcb in brickCoinBoxes){
-            bcb.GetComponent<Animator>().SetTrigger("restart");
-            Transform bcbObj = bcb.Find("brick-box-spring/brick_box_1");
-            bcbObj.GetComponent<BrickBoxCoinHit>().hitDone = false;
-        }
-
-        // i probably need to make an actual boxes manager...
-        foreach(Transform bs in questionStarBoxes){
-            bs.GetComponent<Animator>().SetTrigger("restart");
-            Transform bsObj = bs.Find("question-box-spring/question_box_1");
-            bsObj.GetComponent<QuestionBoxStar>().hitDone = false;
-        }
-
-        // reset powerups
-        GameManager.instance.EndPowerup(1);
-        GameManager.instance.ResetPowerup(1);
-        // 2, 3, etc...
-    */
-        // no need to restart brickBox without coin cuz no script it's just existing
     }
 
 
