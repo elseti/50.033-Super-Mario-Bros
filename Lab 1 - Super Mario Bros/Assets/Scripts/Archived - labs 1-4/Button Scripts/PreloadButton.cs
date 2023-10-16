@@ -25,7 +25,7 @@ public class PreloadButton : MonoBehaviour
 
     public void BackToMainMenuButton(){
         print("go to main menu");
-        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("New MainMenu", LoadSceneMode.Single);
     }
 
     void FadeIn(){
