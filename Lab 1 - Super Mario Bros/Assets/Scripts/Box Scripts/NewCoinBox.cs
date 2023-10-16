@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickBoxCoinHit : MonoBehaviour
+public class NewCoinBox : MonoBehaviour
 {
     public Animator brickBoxAnimator;
     public AudioSource boxAudioSource;
-
-    public bool hitDone = false; 
+    
+    private bool hitDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,12 @@ public class BrickBoxCoinHit : MonoBehaviour
             brickBoxAnimator.SetTrigger("hitBrickBox");
             hitDone = true;
         }
-
     }
+
+    public void GameRestart(){
+        brickBoxAnimator.SetTrigger("restart");
+        hitDone = false;
+    }
+
+    
 }

@@ -5,7 +5,7 @@ public class IntVariable : Variable<int>
 {
 
     public int previousHighestValue;
-    public override void SetValue(int value)
+    public void SetHighValue(int value)
     {
         if (value > previousHighestValue) previousHighestValue = value;
 
@@ -13,6 +13,9 @@ public class IntVariable : Variable<int>
     }
 
     // overload
+    public override void SetValue(int value){
+        _value = value;
+    }
     public void SetValue(IntVariable value)
     {
         SetValue(value.Value);
@@ -22,6 +25,8 @@ public class IntVariable : Variable<int>
     {
         this.Value += amount;
     }
+
+    
 
     public void ApplyChange(IntVariable amount)
     {

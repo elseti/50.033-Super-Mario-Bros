@@ -56,8 +56,7 @@ public class NewGameManager : MonoBehaviour
     {
         // reset score
         score = 0;
-        // SetScore(score);
-        // gameRestart.Invoke();
+        gameScore.SetValue(0);
         Time.timeScale = 1.0f;
     }
 
@@ -68,7 +67,7 @@ public class NewGameManager : MonoBehaviour
     public void IncreaseScore(int increment){
         score += increment;
         gameScore.ApplyChange(increment); 
-        highScore.SetValue(gameScore.Value);
+        highScore.SetHighValue(gameScore.Value);
         updateScore.Invoke();
     }
 
