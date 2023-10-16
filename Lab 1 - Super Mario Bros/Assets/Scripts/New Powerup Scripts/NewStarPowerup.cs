@@ -16,8 +16,8 @@ public class NewStarPowerup : MonoBehaviour
     public UnityEvent startStarPowerup;
 
     void Awake(){  
-        // GameManager.instance.resetPowerup.AddListener(ResetStar);
     }
+    
     void Start()
     {
         
@@ -34,13 +34,15 @@ public class NewStarPowerup : MonoBehaviour
         starMarioCollider.enabled = true;
         starAudio.PlayOneShot(starAudio.clip);
         this.gameObject.SetActive(false);
+
         startStarPowerup.Invoke();
     }
 
     public void GameRestart(){
+        print("game restart in new star powerup");
         this.gameObject.SetActive(true);
-        bgmAudio.Stop();
-        bgmAudio.PlayOneShot(bgmClip);
+        // bgmAudio.Stop();
+        // bgmAudio.PlayOneShot(bgmClip);
     }
 
 }

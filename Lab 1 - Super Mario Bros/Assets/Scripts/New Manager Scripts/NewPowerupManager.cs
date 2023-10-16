@@ -21,10 +21,6 @@ public class NewPowerupManager : MonoBehaviour
     void Start(){
         marioAnimator = GetComponent<Animator>();
         marioStateController = GetComponent<MarioStateController>();
-
-        //  GameManager.instance.startPowerup.AddListener(StartPowerup);
-        // GameManager.instance.endPowerup.AddListener(ResetPowerup);
-
     }
 
     void Update(){
@@ -46,6 +42,13 @@ public class NewPowerupManager : MonoBehaviour
         endStarPowerup.Invoke();
     }
 
+    // Super Mario (+ 1 life / mushroom)
+    public void StartMushroomPowerup(){
+        
+    }
+
+
+    // Coroutines
     void Wait(float seconds){
         StartCoroutine(WaitCoroutine(seconds));
     }

@@ -53,6 +53,10 @@ public class NewStompGoomba : MonoBehaviour
         
     }
 
+    public void SetCollided(bool set){
+        hasCollided = set;
+    }
+
     public void StartPowerup(int powerupType){
         // star powerup
         if(powerupType == 1){
