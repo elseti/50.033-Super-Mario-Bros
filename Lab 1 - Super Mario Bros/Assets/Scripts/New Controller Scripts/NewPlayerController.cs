@@ -48,15 +48,6 @@ public class NewPlayerController : MonoBehaviour
     public UnityEvent gameOver;
 
 
-
-    void Awake(){
-        // subscription
-        // GameManager.instance.gameRestart.AddListener(GameRestart);
-        // GameManager.instance.startPowerup.AddListener(StartPowerup);
-        // GameManager.instance.endPowerup.AddListener(EndPowerup);
-    }
-
-
     void Start()
     {  
 
@@ -72,8 +63,6 @@ public class NewPlayerController : MonoBehaviour
         marioSprite = GetComponent<SpriteRenderer>();
 
         marioAnimator.SetBool("onGround", onGroundState);
-
-        // SceneManager.activeSceneChanged += SetStartingPosition; - if using same mario singleton
         
     }
 
@@ -206,7 +195,7 @@ public class NewPlayerController : MonoBehaviour
         starPowerup = false;
     }
 
-    
+
 
     // called in death animation TODO: DELETE LTR
     void GameOverScreen(){

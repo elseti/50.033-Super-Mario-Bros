@@ -11,6 +11,7 @@ public class NewPowerupManager : MonoBehaviour
 
     // UnityEvents 
     public UnityEvent endStarPowerup;
+    // public UnityEvent resetPowerup;
     
 
     // misc vars
@@ -37,7 +38,6 @@ public class NewPowerupManager : MonoBehaviour
     }
 
     public void EndStarPowerup(){
-        // starDone = false;
         print("stardone false again");
         // bgmAudio.Stop();
         // bgmAudio.PlayOneShot(bgmAudio.clip);
@@ -54,6 +54,10 @@ public class NewPowerupManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(seconds);
         print("coroutine done");
         // starDone = true;
+        EndStarPowerup();
+    }
+
+    public void RestartPowerup(){
         EndStarPowerup();
     }
 
