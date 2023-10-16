@@ -183,12 +183,14 @@ public class NewPlayerController : MonoBehaviour
             else if(mushroomPowerup){
                 if(mushroomLife){ // life --
                     print("mushroom powerup is used up");
-                    mushroomLife = false;
+                    EndMushroomPowerup();
                 }
                 else{
-                    print("in else statement");
-                    mushroomPowerup = false;
-                    EndMushroomPowerup();
+                    print("in else statement (die)");
+                    other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
+                    marioAnimator.Play("Mario Die");
+                    marioDeath.PlayOneShot(marioDeath.clip);            
+                    alive = false;
                 }
             }
             else{ // if no powerups, die.
@@ -217,6 +219,9 @@ public class NewPlayerController : MonoBehaviour
 
     public void EndMushroomPowerup(){
         print("end mushroom powerup controller");
+        mushroomLife = false;
+        mushroomPowerup = false;
+        // todo: flicker animation
         endMushroomPowerup.Invoke();
     }
 
@@ -255,6 +260,10 @@ public class NewPlayerController : MonoBehaviour
 
         // reset camera position
         gameCamera.position = new Vector3(-4.927341f, -3.865316f, -5.233578f);
+
+        // Powerup restarts (fireflower and mushroom)
+        EndMushroomPowerup();
+        EndFireFlowerPowerup();
     }
 
 

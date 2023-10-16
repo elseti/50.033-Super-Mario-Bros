@@ -40,7 +40,6 @@ public class NewPowerupManager : MonoBehaviour
         print("stardone false again");
         // bgmAudio.Stop();
         // bgmAudio.PlayOneShot(bgmAudio.clip);
-        marioAnimator.Play("Mario Idle");
         starMarioCollider.enabled = false; // disable big collider again
         endStarPowerup.Invoke();
     }
@@ -78,6 +77,7 @@ public class NewPowerupManager : MonoBehaviour
     }
 
     public void RestartPowerup(){
+        marioAnimator.Play("Mario Idle");
         EndStarPowerup();
         EndMushroomPowerup();
         EndFireFlowerPowerup();

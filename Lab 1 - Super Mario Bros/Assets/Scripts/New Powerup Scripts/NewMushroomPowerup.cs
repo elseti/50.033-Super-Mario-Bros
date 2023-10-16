@@ -13,9 +13,6 @@ public class NewMushroomPowerup : MonoBehaviour
     private bool mushroomDone = false;
     public UnityEvent startMushroomPowerup;
 
-    void Awake(){  
-    }
-
     void Start()
     {
         
@@ -28,6 +25,8 @@ public class NewMushroomPowerup : MonoBehaviour
     }
 
     void OnTriggerEnter2D(){
+        print("colided with mushroom");
+        // todo - check if star mario is playing
         marioAnimator.Play("Super Mario Idle");
         mushroomMarioCollider.enabled = true;
         mushroomAudio.PlayOneShot(mushroomAudio.clip);
