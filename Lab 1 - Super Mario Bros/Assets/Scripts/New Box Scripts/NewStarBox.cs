@@ -31,7 +31,7 @@ public class NewStarBox : MonoBehaviour
     }
 
     public void GameRestart(){
-        print("game restart in newstarbox");
+        // print("game restart in newstarbox");
         questionBoxStarAnimator.SetTrigger("restart");
         hitDone = false;
     }

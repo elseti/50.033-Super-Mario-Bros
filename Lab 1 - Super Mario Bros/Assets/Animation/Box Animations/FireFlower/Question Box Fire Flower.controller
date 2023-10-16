@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dead Question with Flashing Star
+  m_Name: Dead Question with FireFlower
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e412709700fa341e189d5bd49ad2a02c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 200c5156ebfe045bfbee0bf3310e1a8d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -193,7 +193,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Star Pop
+  m_Name: FireFlower Pop
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -208,7 +208,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0ef31a98ab45e47209723b69d0c74c7d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 47069d6e733ce467db8676da06d468b3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

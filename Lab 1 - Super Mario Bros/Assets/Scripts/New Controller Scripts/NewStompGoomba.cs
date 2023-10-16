@@ -33,7 +33,7 @@ public class NewStompGoomba : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
-        print("collided in goomba");
+        // print("collided in goomba");
         if(col.gameObject.CompareTag("Player") && !hasCollided){
             if(starPowerup){
                 goombaAudio.PlayOneShot(goombaAudio.clip);
@@ -42,7 +42,7 @@ public class NewStompGoomba : MonoBehaviour
             }
             else{
                 if(col.gameObject.CompareTag("Player")){
-                    print("in player");
+                    // print("in player");
                     goombaAudio.PlayOneShot(goombaAudio.clip);
                     goombaAnim.Play("Goomba Squish");
                 }

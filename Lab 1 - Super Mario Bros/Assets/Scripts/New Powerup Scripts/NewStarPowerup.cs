@@ -17,7 +17,7 @@ public class NewStarPowerup : MonoBehaviour
 
     void Awake(){  
     }
-    
+
     void Start()
     {
         
@@ -39,7 +39,7 @@ public class NewStarPowerup : MonoBehaviour
     }
 
     public void GameRestart(){
-        print("game restart in new star powerup");
+        // print("game restart in new star powerup");
         this.gameObject.SetActive(true);
         // bgmAudio.Stop();
         // bgmAudio.PlayOneShot(bgmClip);
