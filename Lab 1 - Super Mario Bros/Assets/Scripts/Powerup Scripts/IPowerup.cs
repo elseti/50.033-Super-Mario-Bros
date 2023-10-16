@@ -25,6 +25,7 @@ public interface IPowerupApplicable
 
 public enum PowerupType
 {
+    Default = -1, //idk
     Coin = 0,
     MagicMushroom = 1,
     OneUpMushroom = 2,

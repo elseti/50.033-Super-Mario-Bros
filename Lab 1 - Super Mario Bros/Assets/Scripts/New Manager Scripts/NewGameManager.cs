@@ -49,8 +49,6 @@ public class NewGameManager : MonoBehaviour
     }
 
     public void GameOver(){
-        print("game over");
-        highScore.SetValue(gameScore.Value);
         Time.timeScale = 0.0f;
     }
 

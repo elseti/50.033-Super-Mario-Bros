@@ -34,7 +34,7 @@ public class State : ScriptableObject
     {
         for (int i = 0; i < exitActions.Length; i++) exitActions[i].Act(controller);
     }
-
+    // no default
     public void DoEventTriggeredActions(StateController controller, ActionType type = ActionType.Default)
     {
         // cast all actions that matches given type
