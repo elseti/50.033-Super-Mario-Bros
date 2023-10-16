@@ -11,6 +11,9 @@ public class NewPowerupManager : MonoBehaviour
 
     // UnityEvents 
     public UnityEvent endStarPowerup;
+    // public UnityEvent endMushroomPowerup; // can implement in playercontoroller
+    // public UnityEvent endFireFlowerPowerup;
+
     // public UnityEvent resetPowerup;
     
 
@@ -47,6 +50,20 @@ public class NewPowerupManager : MonoBehaviour
         
     }
 
+    public void EndMushroomPowerup(){
+        print("mushroom done");
+
+    }
+
+    // Fireflower (shoots fire)
+    public void StartFireFlowerPowerup(){
+
+    }
+
+    public void EndFireFlowerPowerup(){
+
+    }
+
 
     // Coroutines
     void Wait(float seconds){
@@ -62,6 +79,8 @@ public class NewPowerupManager : MonoBehaviour
 
     public void RestartPowerup(){
         EndStarPowerup();
+        EndMushroomPowerup();
+        EndFireFlowerPowerup();
     }
 
     

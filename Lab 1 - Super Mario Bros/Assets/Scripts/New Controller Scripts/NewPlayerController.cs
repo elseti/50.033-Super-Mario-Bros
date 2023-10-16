@@ -32,20 +32,23 @@ public class NewPlayerController : MonoBehaviour
     public Transform gameCamera;    
 
     int collisionLayerMask = (1 << 6) | (1 << 7) | (1 << 8); // bitwise OR between layers; i.e. becomes 1110 0000 i think?
-
-    // Question Box animator
-    // public Transform questionBoxes;
-    // public Transform brickCoinBoxes;
-    // public Transform questionStarBoxes;
     
     // InputSystem
     private bool moving = false;
     private  bool jumpedState = false;
 
-    private bool starPowerup = false;
+    
 
     // UnityEvents invoke
     public UnityEvent gameOver;
+
+    // Powerup variables
+    public UnityEvent endMushroomPowerup;
+    public UnityEvent endFireFlowerPowerup;
+    private bool mushroomPowerup = false;
+    private bool mushroomLife = false; // true = 1 life left, false = 0 life left
+    private bool starPowerup = false;
+    private bool fireFlowerPowerup = false;
 
 
     void Start()
@@ -174,14 +177,25 @@ public class NewPlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
-            if(!starPowerup){ 
+            if(starPowerup){ 
+                print("death ignored due to star");
+            }
+            else if(mushroomPowerup){
+                if(mushroomLife){ // life --
+                    print("mushroom powerup is used up");
+                    mushroomLife = false;
+                }
+                else{
+                    print("in else statement");
+                    mushroomPowerup = false;
+                    EndMushroomPowerup();
+                }
+            }
+            else{ // if no powerups, die.
                 other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
                 marioAnimator.Play("Mario Die");
                 marioDeath.PlayOneShot(marioDeath.clip);            
                 alive = false;
-            }
-            else{ // if star, ignore enemy 
-                print("enemy ignored due to star powerup");
             }  
         }
     }
@@ -193,6 +207,27 @@ public class NewPlayerController : MonoBehaviour
 
     public void EndStarPowerup(){
         starPowerup = false;
+    }
+
+    public void StartMushroomPowerup(){
+        print("start mushroom controller");
+        mushroomLife = true;
+        mushroomPowerup = true;
+    }
+
+    public void EndMushroomPowerup(){
+        print("end mushroom powerup controller");
+        endMushroomPowerup.Invoke();
+    }
+
+    public void StartFireFlowerPowerup(){
+        print("start fireflower");
+        fireFlowerPowerup = true;
+    }
+
+    public void EndFireFlowerPowerup(){
+        print("end flower fire ");
+        fireFlowerPowerup = false;
     }
 
 
