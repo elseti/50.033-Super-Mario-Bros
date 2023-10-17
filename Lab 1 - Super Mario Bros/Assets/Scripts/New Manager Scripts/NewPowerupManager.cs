@@ -20,6 +20,8 @@ public class NewPowerupManager : MonoBehaviour
     // misc vars
     private bool starDone = false;
     private float starPowerupTime = 10f;
+    private bool mushroomDone = false;
+    private bool fireFlowerDone = false;
 
     void Start(){
         marioAnimator = GetComponent<Animator>();
@@ -33,7 +35,8 @@ public class NewPowerupManager : MonoBehaviour
     // Invincible Mario (star)
     public void StartStarPowerup(){
         // bgm stuff
-        Wait(starPowerupTime);
+        starDone = true;
+        WaitStar(starPowerupTime);
     }
 
     public void EndStarPowerup(){
@@ -46,13 +49,17 @@ public class NewPowerupManager : MonoBehaviour
 
     // Super Mario (+ 1 life / mushroom)
     public void StartMushroomPowerup(){
-        
+        mushroomDone = true;
     }
 
     public void EndMushroomPowerup(){
-        print("mushroom done");
+        mushroomDone = false;
+        starMarioCollider.enabled = false;
+        print("powerup manager - mushroom done");
+        FlickerMario();
 
     }
+
 
     // Fireflower (shoots fire)
     public void StartFireFlowerPowerup(){
@@ -65,11 +72,11 @@ public class NewPowerupManager : MonoBehaviour
 
 
     // Coroutines
-    void Wait(float seconds){
-        StartCoroutine(WaitCoroutine(seconds));
+    void WaitStar(float seconds){
+        StartCoroutine(WaitStarCoroutine(seconds));
     }
 
-    private IEnumerator WaitCoroutine(float seconds){
+    private IEnumerator WaitStarCoroutine(float seconds){
         yield return new WaitForSecondsRealtime(seconds);
         print("coroutine done");
         // starDone = true;
@@ -79,9 +86,24 @@ public class NewPowerupManager : MonoBehaviour
     public void RestartPowerup(){
         marioAnimator.Play("Mario Idle");
         EndStarPowerup();
-        EndMushroomPowerup();
-        EndFireFlowerPowerup();
+        starDone = false;
+        mushroomDone = false;
+        fireFlowerDone = false;
+        starMarioCollider.enabled = false;
     }
+
+    // invincible mario for 2 secs after super mario
+    public void FlickerMario(){
+        marioAnimator.Play("Mario Flicker");
+        StartCoroutine(WaitFlickerMarioCoroutine(2f));
+    }
+
+    private IEnumerator WaitFlickerMarioCoroutine(float seconds){
+        yield return new WaitForSecondsRealtime(seconds);
+        marioAnimator.Play("Mario Idle");
+    }
+
+    
 
     
 }

@@ -45,11 +45,13 @@ public class NewPlayerController : MonoBehaviour
     // Powerup variables
     public UnityEvent endMushroomPowerup;
     public UnityEvent endFireFlowerPowerup;
+
     private bool mushroomPowerup = false;
-    private bool mushroomLife = false; // true = 1 life left, false = 0 life left
+    // private bool mushroomLife = false; // true = 1 life left, false = 0 life left
     private bool starPowerup = false;
     private bool fireFlowerPowerup = false;
-
+    private int fireFlowerAmmo = 5; // temp 5
+    private bool invincible = false;
 
     void Start()
     {  
@@ -80,6 +82,16 @@ public class NewPlayerController : MonoBehaviour
     {
         if(alive && moving){
             Move(faceRightState == true ? 1 : -1);
+        }
+
+        // fireflower
+        if(fireFlowerPowerup && Input.GetKeyDown("z")){
+            fireFlowerAmmo --;
+            // fireball coroutine
+            print("fireflower ammo left: "+fireFlowerAmmo);
+            if(fireFlowerAmmo == 0){
+                EndFireFlowerPowerup();
+            }
         }
 
     }
@@ -177,21 +189,17 @@ public class NewPlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
-            if(starPowerup){ 
+            print("inside trigger enter!!");
+            if(starPowerup || invincible){ 
                 print("death ignored due to star");
             }
             else if(mushroomPowerup){
-                if(mushroomLife){ // life --
-                    print("mushroom powerup is used up");
-                    EndMushroomPowerup();
-                }
-                else{
-                    print("in else statement (die)");
-                    other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
-                    marioAnimator.Play("Mario Die");
-                    marioDeath.PlayOneShot(marioDeath.clip);            
-                    alive = false;
-                }
+                EndMushroomPowerup();
+                // if(mushroomLife){ // life --
+                //     print("mushroom powerup is used up");
+                //     // EndMushroomPowerup();
+                //     mushroomLife = false;
+                // }
             }
             else{ // if no powerups, die.
                 other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
@@ -211,20 +219,34 @@ public class NewPlayerController : MonoBehaviour
         starPowerup = false;
     }
 
+    // MUSHROOM POWERUP
     public void StartMushroomPowerup(){
-        print("start mushroom controller");
-        mushroomLife = true;
+        
+        // mushroomLife = true;
         mushroomPowerup = true;
+        // print("start mushroom controller" + mushroomLife + mushroomPowerup);
     }
 
     public void EndMushroomPowerup(){
         print("end mushroom powerup controller");
-        mushroomLife = false;
         mushroomPowerup = false;
-        // todo: flicker animation
+        WaitInvincible(2f);
         endMushroomPowerup.Invoke();
+        
     }
 
+    void WaitInvincible(float seconds){
+        invincible = true;
+        StartCoroutine(WaitInvincibleCoroutine(seconds));
+    }
+
+    private IEnumerator WaitInvincibleCoroutine(float seconds){
+        yield return new WaitForSecondsRealtime(seconds);
+        print("invincible false");
+        invincible = false;
+    }
+
+    // FIRE FLOWER POWERUP
     public void StartFireFlowerPowerup(){
         print("start fireflower");
         fireFlowerPowerup = true;
@@ -233,6 +255,10 @@ public class NewPlayerController : MonoBehaviour
     public void EndFireFlowerPowerup(){
         print("end flower fire ");
         fireFlowerPowerup = false;
+        if(!mushroomPowerup && !starPowerup){
+            marioAnimator.Play("Mario Idle");
+        }
+        endFireFlowerPowerup.Invoke();
     }
 
 
@@ -262,8 +288,10 @@ public class NewPlayerController : MonoBehaviour
         gameCamera.position = new Vector3(-4.927341f, -3.865316f, -5.233578f);
 
         // Powerup restarts (fireflower and mushroom)
-        EndMushroomPowerup();
-        EndFireFlowerPowerup();
+        // EndMushroomPowerup();
+        // EndFireFlowerPowerup();
+        mushroomPowerup = false;
+        fireFlowerPowerup = false;
     }
 
 
@@ -276,5 +304,8 @@ public class NewPlayerController : MonoBehaviour
         alive = false;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
     }
+
+
+    
 
 }
