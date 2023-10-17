@@ -18,8 +18,6 @@ public class NewStompGoomba : MonoBehaviour
     // Start is called before the first frame update
 
     void Awake(){
-        // GameManager.instance.startPowerup.AddListener(StartPowerup);
-        // GameManager.instance.endPowerup.AddListener(EndPowerup);
     }
     void Start()
     {

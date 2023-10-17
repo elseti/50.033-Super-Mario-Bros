@@ -3558,6 +3558,9 @@ GameObject:
   - component: {fileID: 1146390501}
   - component: {fileID: 1146390502}
   - component: {fileID: 1146390503}
+  - component: {fileID: 1146390504}
+  - component: {fileID: 1146390505}
+  - component: {fileID: 1146390506}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Player
@@ -4039,6 +4042,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  fireFlowerShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146390505}
+        m_TargetAssemblyTypeName: FireFlowerShooter, Assembly-CSharp
+        m_MethodName: ShootFireFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146390495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4316,6 +4334,78 @@ MonoBehaviour:
       - m_Target: {fileID: 1146390499}
         m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
         m_MethodName: EndMushroomPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1146390504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a5dd0b5590ee1499599b4ef045c74a5a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146390499}
+        m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
+        m_MethodName: EndFireFlowerPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1146390505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74813bde9593437590fada2d8c79238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPrefabInScene: 5
+  impulseForce: 10
+  degree: 45
+  attackPrefab: {fileID: 5560551904617520053, guid: 1948f48000137460abd815a944dd4f85, type: 3}
+--- !u!114 &1146390506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146390482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b0ecbdc18544d43c4b4359fb3d06a56b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1146390505}
+        m_TargetAssemblyTypeName: FireFlowerShooter, Assembly-CSharp
+        m_MethodName: ShootFireFlower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -45,9 +45,9 @@ public class NewPlayerController : MonoBehaviour
     // Powerup variables
     public UnityEvent endMushroomPowerup;
     public UnityEvent endFireFlowerPowerup;
+    public UnityEvent fireFlowerShoot;
 
     private bool mushroomPowerup = false;
-    // private bool mushroomLife = false; // true = 1 life left, false = 0 life left
     private bool starPowerup = false;
     private bool fireFlowerPowerup = false;
     private int fireFlowerAmmo = 5; // temp 5
@@ -75,6 +75,17 @@ public class NewPlayerController : MonoBehaviour
         if(alive){
             marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
         }
+
+        // fireflower
+        if(fireFlowerPowerup && Input.GetKeyDown("z")){
+            fireFlowerAmmo --;
+            // fireball coroutine
+            fireFlowerShoot.Invoke();
+            print("fireflower ammo left: "+fireFlowerAmmo);
+            if(fireFlowerAmmo == 0){
+                EndFireFlowerPowerup();
+            }
+        }
         
     }
 
@@ -84,15 +95,7 @@ public class NewPlayerController : MonoBehaviour
             Move(faceRightState == true ? 1 : -1);
         }
 
-        // fireflower
-        if(fireFlowerPowerup && Input.GetKeyDown("z")){
-            fireFlowerAmmo --;
-            // fireball coroutine
-            print("fireflower ammo left: "+fireFlowerAmmo);
-            if(fireFlowerAmmo == 0){
-                EndFireFlowerPowerup();
-            }
-        }
+        
 
     }
 
@@ -174,6 +177,10 @@ public class NewPlayerController : MonoBehaviour
         }
     }
 
+    public bool GetMarioFaceRight(){
+        return faceRightState;
+    }
+
 
     // allow jump on ground
     void OnCollisionEnter2D(Collision2D col){
@@ -191,7 +198,7 @@ public class NewPlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy") && alive){
             print("inside trigger enter!!");
             if(starPowerup || invincible){ 
-                print("death ignored due to star");
+                print("death ignored due to invincibility");
             }
             else if(mushroomPowerup){
                 EndMushroomPowerup();

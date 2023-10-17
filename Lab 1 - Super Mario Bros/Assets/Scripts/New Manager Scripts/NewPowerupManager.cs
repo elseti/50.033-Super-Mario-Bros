@@ -11,17 +11,14 @@ public class NewPowerupManager : MonoBehaviour
 
     // UnityEvents 
     public UnityEvent endStarPowerup;
-    // public UnityEvent endMushroomPowerup; // can implement in playercontoroller
-    // public UnityEvent endFireFlowerPowerup;
-
-    // public UnityEvent resetPowerup;
     
 
     // misc vars
-    private bool starDone = false;
+    private bool starStart = false;
     private float starPowerupTime = 10f;
-    private bool mushroomDone = false;
-    private bool fireFlowerDone = false;
+    private bool mushroomStart = false;
+    private bool fireFlowerStart = false;
+    
 
     void Start(){
         marioAnimator = GetComponent<Animator>();
@@ -35,7 +32,7 @@ public class NewPowerupManager : MonoBehaviour
     // Invincible Mario (star)
     public void StartStarPowerup(){
         // bgm stuff
-        starDone = true;
+        starStart = true;
         WaitStar(starPowerupTime);
     }
 
@@ -49,11 +46,11 @@ public class NewPowerupManager : MonoBehaviour
 
     // Super Mario (+ 1 life / mushroom)
     public void StartMushroomPowerup(){
-        mushroomDone = true;
+        mushroomStart = true;
     }
 
     public void EndMushroomPowerup(){
-        mushroomDone = false;
+        mushroomStart = false;
         starMarioCollider.enabled = false;
         print("powerup manager - mushroom done");
         FlickerMario();
@@ -63,11 +60,12 @@ public class NewPowerupManager : MonoBehaviour
 
     // Fireflower (shoots fire)
     public void StartFireFlowerPowerup(){
-
+        fireFlowerStart = true;
     }
 
     public void EndFireFlowerPowerup(){
-
+        fireFlowerStart = false;
+        starMarioCollider.enabled = false;
     }
 
 
@@ -86,9 +84,9 @@ public class NewPowerupManager : MonoBehaviour
     public void RestartPowerup(){
         marioAnimator.Play("Mario Idle");
         EndStarPowerup();
-        starDone = false;
-        mushroomDone = false;
-        fireFlowerDone = false;
+        starStart = false;
+        mushroomStart = false;
+        fireFlowerStart = false;
         starMarioCollider.enabled = false;
     }
 
