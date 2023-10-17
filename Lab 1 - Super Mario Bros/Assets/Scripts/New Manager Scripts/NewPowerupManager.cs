@@ -18,7 +18,7 @@ public class NewPowerupManager : MonoBehaviour
     private float starPowerupTime = 10f;
     private bool mushroomStart = false;
     private bool fireFlowerStart = false;
-    
+
 
     void Start(){
         marioAnimator = GetComponent<Animator>();
@@ -37,10 +37,17 @@ public class NewPowerupManager : MonoBehaviour
     }
 
     public void EndStarPowerup(){
-        print("stardone false again");
+        starStart = false;
         // bgmAudio.Stop();
         // bgmAudio.PlayOneShot(bgmAudio.clip);
-        starMarioCollider.enabled = false; // disable big collider again
+        print("STAR END, " + fireFlowerStart + mushroomStart);
+        if(!fireFlowerStart && !mushroomStart){
+            starMarioCollider.enabled = false;
+            marioAnimator.Play("Mario Idle");
+        }
+        else{
+            marioAnimator.Play("Super Mario Idle");
+        }
         endStarPowerup.Invoke();
     }
 
@@ -51,10 +58,22 @@ public class NewPowerupManager : MonoBehaviour
 
     public void EndMushroomPowerup(){
         mushroomStart = false;
-        starMarioCollider.enabled = false;
+        if(!fireFlowerStart && !starStart){
+            starMarioCollider.enabled = false;
+            FlickerMario();
+        }
         print("powerup manager - mushroom done");
-        FlickerMario();
+    }
 
+    // invincible mario for 2 secs after super mario
+    public void FlickerMario(){
+        marioAnimator.Play("Mario Flicker");
+        StartCoroutine(WaitFlickerMarioCoroutine(2f));
+    }
+
+    private IEnumerator WaitFlickerMarioCoroutine(float seconds){
+        yield return new WaitForSecondsRealtime(seconds);
+        if(!starStart && !fireFlowerStart) marioAnimator.Play("Mario Idle");
     }
 
 
@@ -65,7 +84,10 @@ public class NewPowerupManager : MonoBehaviour
 
     public void EndFireFlowerPowerup(){
         fireFlowerStart = false;
-        starMarioCollider.enabled = false;
+        if(!mushroomStart && !starStart){
+            starMarioCollider.enabled = false;
+            marioAnimator.Play("Mario Idle");
+        }
     }
 
 
@@ -90,16 +112,7 @@ public class NewPowerupManager : MonoBehaviour
         starMarioCollider.enabled = false;
     }
 
-    // invincible mario for 2 secs after super mario
-    public void FlickerMario(){
-        marioAnimator.Play("Mario Flicker");
-        StartCoroutine(WaitFlickerMarioCoroutine(2f));
-    }
-
-    private IEnumerator WaitFlickerMarioCoroutine(float seconds){
-        yield return new WaitForSecondsRealtime(seconds);
-        marioAnimator.Play("Mario Idle");
-    }
+    
 
     
 

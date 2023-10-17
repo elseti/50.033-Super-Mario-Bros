@@ -6,11 +6,15 @@ using UnityEngine.Events;
 public class NewEnemyController : MonoBehaviour
 {
     public GameConstants gameConstants;
+    public UnityEvent increaseScore;
+
     private float originalX;
     public float maxOffset = 5.0f;
     public float enemyPatroltime = 2.0f;
     private int moveRight = -1;
     private Vector2 velocity;
+    private AudioSource goombaAudio;
+    private Animator goombaAnim;
 
     private Rigidbody2D enemyBody;
 
@@ -26,6 +30,9 @@ public class NewEnemyController : MonoBehaviour
         enemyBody = GetComponent<Rigidbody2D>();
         originalX = transform.position.x; // get the starting position
         ComputeVelocity();
+
+        goombaAudio = GetComponent<AudioSource>();
+        goombaAnim = GetComponent<Animator>();
     }
 
     void ComputeVelocity()
@@ -54,7 +61,12 @@ public class NewEnemyController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        // Debug.Log(other.gameObject.name);
+        if(col.gameObject.CompareTag("Fireball")){
+            print("in fireball trigger collide");
+            goombaAudio.PlayOneShot(goombaAudio.clip);
+            goombaAnim.Play("Goomba Topple");
+            increaseScore.Invoke();
+        }
     }
 
     public void GameRestart()

@@ -48,6 +48,14 @@ public class NewStompGoomba : MonoBehaviour
             increaseScore.Invoke();
             hasCollided = true;
         }
+
+        // fireball hit
+        else if(col.gameObject.CompareTag("Fireball")){
+            print("in fireball collide");
+            goombaAudio.PlayOneShot(goombaAudio.clip);
+            goombaAnim.Play("Goomba Topple");
+            increaseScore.Invoke();
+        }
         
     }
 

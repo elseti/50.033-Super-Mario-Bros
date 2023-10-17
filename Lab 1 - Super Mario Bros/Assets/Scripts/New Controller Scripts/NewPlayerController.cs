@@ -196,17 +196,11 @@ public class NewPlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Enemy") && alive){
-            print("inside trigger enter!!");
             if(starPowerup || invincible){ 
                 print("death ignored due to invincibility");
             }
             else if(mushroomPowerup){
                 EndMushroomPowerup();
-                // if(mushroomLife){ // life --
-                //     print("mushroom powerup is used up");
-                //     // EndMushroomPowerup();
-                //     mushroomLife = false;
-                // }
             }
             else{ // if no powerups, die.
                 other.transform.Find("stomp collider").gameObject.SetActive(false); // so that dead mario doesn't touch the stomping edge collider
@@ -228,14 +222,11 @@ public class NewPlayerController : MonoBehaviour
 
     // MUSHROOM POWERUP
     public void StartMushroomPowerup(){
-        
-        // mushroomLife = true;
         mushroomPowerup = true;
         // print("start mushroom controller" + mushroomLife + mushroomPowerup);
     }
 
     public void EndMushroomPowerup(){
-        print("end mushroom powerup controller");
         mushroomPowerup = false;
         WaitInvincible(2f);
         endMushroomPowerup.Invoke();
@@ -249,22 +240,16 @@ public class NewPlayerController : MonoBehaviour
 
     private IEnumerator WaitInvincibleCoroutine(float seconds){
         yield return new WaitForSecondsRealtime(seconds);
-        print("invincible false");
         invincible = false;
     }
 
     // FIRE FLOWER POWERUP
     public void StartFireFlowerPowerup(){
-        print("start fireflower");
         fireFlowerPowerup = true;
     }
 
     public void EndFireFlowerPowerup(){
-        print("end flower fire ");
         fireFlowerPowerup = false;
-        if(!mushroomPowerup && !starPowerup){
-            marioAnimator.Play("Mario Idle");
-        }
         endFireFlowerPowerup.Invoke();
     }
 
@@ -295,10 +280,9 @@ public class NewPlayerController : MonoBehaviour
         gameCamera.position = new Vector3(-4.927341f, -3.865316f, -5.233578f);
 
         // Powerup restarts (fireflower and mushroom)
-        // EndMushroomPowerup();
-        // EndFireFlowerPowerup();
         mushroomPowerup = false;
         fireFlowerPowerup = false;
+        fireFlowerAmmo = 5;
     }
 
 
