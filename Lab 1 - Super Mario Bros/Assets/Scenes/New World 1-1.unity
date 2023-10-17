@@ -3550,7 +3550,6 @@ GameObject:
   - component: {fileID: 1146390495}
   - component: {fileID: 1146390494}
   - component: {fileID: 1146390493}
-  - component: {fileID: 1146390496}
   - component: {fileID: 1146390497}
   - component: {fileID: 1146390499}
   - component: {fileID: 1146390498}
@@ -4114,34 +4113,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1146390496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146390482}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1272339052e6434da832571aed74768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: f1af54d797aef485a89fbdb0aca95433, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1146390482}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1146390497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4287,6 +4258,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1146390499}
+        m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
+        m_MethodName: StartMushroomPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146390502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4305,6 +4288,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146390494}
         m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+        m_MethodName: StartFireFlowerPowerup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1146390499}
+        m_TargetAssemblyTypeName: NewPowerupManager, Assembly-CSharp
         m_MethodName: StartFireFlowerPowerup
         m_Mode: 1
         m_Arguments:

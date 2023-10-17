@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273e6b059df01494aa7f8f7a38e0b23d, type: 3}
   m_Name: GameScore
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
+  DeveloperDescription: In-game score
   previousHighestValue: 0

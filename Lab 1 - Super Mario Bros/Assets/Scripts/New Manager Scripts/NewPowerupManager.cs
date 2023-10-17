@@ -104,8 +104,8 @@ public class NewPowerupManager : MonoBehaviour
     }
 
     public void RestartPowerup(){
-        marioAnimator.Play("Mario Idle");
         EndStarPowerup();
+        marioAnimator.Play("Mario Idle");
         starStart = false;
         mushroomStart = false;
         fireFlowerStart = false;
